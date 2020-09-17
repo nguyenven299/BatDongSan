@@ -33,13 +33,14 @@ const App = () => {
           options=
           {{
             headerStyle: { backgroundColor: '#FFA400' },
-            headerTitle: '',
+            // headerTitle: '123',
             headerLeft: null,
             headerTintColor: 'white',
-
-
+            // headerShown: false
+            title: null
           }}
         />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

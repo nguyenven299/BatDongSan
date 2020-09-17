@@ -1,79 +1,155 @@
 import * as React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
-
-const Stack = createStackNavigator();
-import {
-    View,
-    Text,
-    ImageBackground,
-    Image,
-    TextInput,
-    TouchableOpacity,
-    KeyboardAvoidingView
-} from 'react-native';
-import MyWork from '../Home/MyWork.js'
+import Home from '../Action/Home.js'
 import User from '../User/User.js'
 import Sale from '../Sale/Sale.js'
 import Agency from '../Agency/agency.js'
 import Manager from '../Manager/manager.js'
+import { ImageBackground, View, TouchableOpacity, Text, Alert } from 'react-native';
+
+// const Tab = createMaterialBottomTabNavigator();
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 const Tab = createBottomTabNavigator();
+function MyTabBar({ state, descriptors, navigation }) {
+    const focusedOptions = descriptors[state.routes[state.index].key].options;
 
-
-const TabNavigation = () => {
+    if (focusedOptions.tabBarVisible === false) {
+        return null;
+    }
 
     return (
-        <Tab.Navigator>
-            <Tab.Screen name="MyWork" component={MyWork}
-                options={{
-                    tabBarLabel: 'Hoạt động',
-                    tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="home" color={"#D88B00"} size={30} />
-                    ),
-                    tabBarBadge: 2, // hiển thị thông báo 
-                }}
+        <ImageBackground
+            style=
+            {{
+
+                width: "100%",
+                height: 70
+            }}
+            source={require('../../assest/BG.jpg')}
+        >
+            <View style={{ flexDirection: 'row' }}>
+                {state.routes.map((route, index) => {
+                    const { options } = descriptors[route.key];
+                    const label =
+                        options.tabBarLabel !== undefined
+                            ? options.tabBarLabel
+                            : options.title !== undefined
+                                ? options.title
+                                : route.name;
+
+                    const isFocused = state.index === index;
+
+                    var icon = "";
+                    switch (route.name) {
+                        case "Hoạt động":
+                            icon = "home"
+                            break;
+                        case "Khách hàng":
+                            icon = "users"
+                            break;
+                        case "Bán hàng":
+                            icon = "shopping-cart"
+                            break;
+                        case "Môi giới lẻ":
+                            icon = "user"
+                            break;
+                        case "Quản lý":
+                            icon = "tasks"
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    const onPress = () => {
+                        const event = navigation.emit({
+                            type: 'tabPress',
+                            target: route.key,
+                            canPreventDefault: true,
+                        });
+
+                        if (!isFocused && !event.defaultPrevented) {
+                            navigation.navigate(route.name);
+                        }
+                    };
+
+
+                    return (
+
+
+                        <TouchableOpacity
+                            accessibilityRole="button"
+                            accessibilityStates={isFocused ? ['selected'] : []}
+                            onPress={onPress}
+                            style={{
+                                flex: 1,
+                                backgroundColor: isFocused ? "white" : 'transparent',
+                                alignItems: 'center',
+                                height: 70,
+                                paddingVertical: 10,
+
+                            }}
+                        >
+
+                            <FontAwesome
+                                name={icon} size={23}
+                                style=
+                                {{
+                                    color: isFocused ? '#FFA605' : 'white',
+                                    paddingTop: 7,
+                                }}
+
+                            ></FontAwesome>
+                            <Text style=
+                                {{
+                                    color: isFocused ? '#FFA605' : 'white'
+                                }}
+                            >
+                                {label}
+                            </Text>
+                        </TouchableOpacity>
+
+                    );
+                })}
+            </View>
+        </ImageBackground>
+
+    );
+}
+
+const TabNavigation = () => {
+    return (
+
+        <Tab.Navigator
+            tabBar={props => <MyTabBar {...props} />}
+            initialRouteName="Home"
+            activeColor="#FFA400"
+            barStyle={{
+                backgroundColor: "#D4E3FF",
+                height: 80,
+                justifyContent: 'center',
+
+            }}
+
+        >
+            <Tab.Screen
+                name='Hoạt động' component={Home}
 
             />
-            <Tab.Screen name="UserTab" component={User}
-                options={{
-                    tabBarLabel: 'Khách hàng',
-                    tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="users" color={"#D88B00"} size={30} />
-                    ),
-                    tabBarBadge: 0, // hiển thị thông báo 
-                }}
+            <Tab.Screen
+                name="Khách hàng" component={User}
+            />
+            <Tab.Screen
+                name="Bán hàng" component={Sale}
+            />
+            <Tab.Screen
+                name="Môi giới lẻ" component={Agency}
+            />
+            <Tab.Screen
+                name="Quản lý" component={Manager}
             />
 
-            <Tab.Screen name="Sale" component={Sale}
-                options={{
-                    tabBarLabel: 'Bán hàng',
-                    tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="shopping-cart" color={"#D88B00"} size={30} />
-                    ),
-                    tabBarBadge: 0, // hiển thị thông báo 
-                }}
-
-            />
-            <Tab.Screen name="Agency" component={Agency}
-                options={{
-                    tabBarLabel: 'Mô giới lẻ',
-                    tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="user" color={"#D88B00"} size={30} />
-                    ),
-                    tabBarBadge: 0, // hiển thị thông báo 
-                }}
-            />
-
-            <Tab.Screen name="Manager" component={Manager}
-                options={{
-                    tabBarLabel: 'Quản lý',
-                    tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="tasks" color={"#D88B00"} size={30} />
-                    ),
-                    tabBarBadge: 0, // hiển thị thông báo 
-                }}
-            />
         </Tab.Navigator>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import {
     View,
@@ -7,13 +7,15 @@ import {
     Image,
     TextInput,
     TouchableOpacity,
-    KeyboardAvoidingView
+    KeyboardAvoidingView, Alert
+
 } from 'react-native';
 
-FontAwesome.loadFont()
-
 const Login = ({ navigation }) => {
-
+    const [Icons, setIcon] = useState("eye")
+    const [Account, setAccount] = useState()
+    const [Password, setPassword] = useState()
+    const [hidePassword, setHidePassword] = useState(true)
     return (
         <KeyboardAvoidingView
             behavior={"height"}
@@ -94,6 +96,7 @@ const Login = ({ navigation }) => {
                                             paddingLeft: 20,
                                             paddingRight: 30
                                         }}
+                                        onChangeText={text => setAccount(text)}
                                     >
                                     </TextInput>
                                     <FontAwesome name="user" color={"#D88B00"} size={20}
@@ -135,7 +138,8 @@ const Login = ({ navigation }) => {
                                             paddingRight: 30,
 
                                         }}
-                                        secureTextEntry={true}
+                                        secureTextEntry={hidePassword}
+                                        onChangeText={(text) => setPassword({ text })}
                                     >
 
                                     </TextInput>
@@ -147,8 +151,13 @@ const Login = ({ navigation }) => {
                                             right: 30,
                                             bottom: 10
                                         }}
+                                        onPress={() =>
+                                            Icons !== "eye-slash"
+                                                ? (setIcon('eye-slash'), setHidePassword(false))
+                                                : (setIcon('eye'), setHidePassword(true))
+                                        }
                                     >
-                                        <FontAwesome name="eye" color="#D88B00" size={20}
+                                        <FontAwesome name={Icons} color="#D88B00" size={20}
 
                                         />
                                     </TouchableOpacity>
@@ -203,7 +212,16 @@ const Login = ({ navigation }) => {
 
                                 }}
                                 onPress={
-                                    () => navigation.navigate('TabNavigation')
+                                    () => {
+                                        if (Account != "undefined" && Account != null && Password != "undefined" && Password != null) {
+                                            navigation.navigate('TabNavigation')
+                                        }
+                                        else {
+                                            Alert.alert("Vui lòng nhập đầy đủ dữ liệu")
+                                        }
+
+                                    }
+
                                 }
                             >
                                 <Text
