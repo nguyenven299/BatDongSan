@@ -2,14 +2,16 @@ import * as React from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import Home from '../Action/Home.js'
 import User from '../User/User.js'
+// import User from '../Action/Navigation/Action.js'
 import Sale from '../Sale/Sale.js'
 import Agency from '../Agency/agency.js'
 import Manager from '../Manager/manager.js'
+import HomeNavigation from '../navigation/HomeNavigation.js'
 import { ImageBackground, View, TouchableOpacity, Text, Alert } from 'react-native';
 
 // const Tab = createMaterialBottomTabNavigator();
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import { NavigationContainer } from '@react-navigation/native';
 const Tab = createBottomTabNavigator();
 function MyTabBar({ state, descriptors, navigation }) {
     const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -20,9 +22,7 @@ function MyTabBar({ state, descriptors, navigation }) {
 
     return (
         <ImageBackground
-            style=
-            {{
-
+            style={{
                 width: "100%",
                 height: 70
             }}
@@ -120,37 +120,38 @@ function MyTabBar({ state, descriptors, navigation }) {
 
 const TabNavigation = () => {
     return (
+        <NavigationContainer>
+            <Tab.Navigator
+                tabBar={props => <MyTabBar {...props} />}
+                initialRouteName="Home"
+                activeColor="#FFA400"
+                barStyle={{
+                    backgroundColor: "#D4E3FF",
+                    height: 80,
+                    justifyContent: 'center',
+                }}
+                screenOptions={{
+                    headerShown: true
+                }}
+            >
+                <Tab.Screen
+                    name='Hoạt động' component={HomeNavigation}
+                />
+                <Tab.Screen
+                    name="Khách hàng" component={User}
+                />
+                <Tab.Screen
+                    name="Bán hàng" component={Sale}
+                />
+                <Tab.Screen
+                    name="Môi giới lẻ" component={Agency}
+                />
+                <Tab.Screen
+                    name="Quản lý" component={Manager}
+                />
 
-        <Tab.Navigator
-            tabBar={props => <MyTabBar {...props} />}
-            initialRouteName="Home"
-            activeColor="#FFA400"
-            barStyle={{
-                backgroundColor: "#D4E3FF",
-                height: 80,
-                justifyContent: 'center',
-
-            }}
-
-        >
-            <Tab.Screen
-                name='Hoạt động' component={Home}
-
-            />
-            <Tab.Screen
-                name="Khách hàng" component={User}
-            />
-            <Tab.Screen
-                name="Bán hàng" component={Sale}
-            />
-            <Tab.Screen
-                name="Môi giới lẻ" component={Agency}
-            />
-            <Tab.Screen
-                name="Quản lý" component={Manager}
-            />
-
-        </Tab.Navigator>
+            </Tab.Navigator>
+        </NavigationContainer>
     )
 }
 export default TabNavigation;

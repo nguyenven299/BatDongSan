@@ -16,6 +16,7 @@ const User = () => {
             <Text>
                 khách hàng
           </Text>
+
         </View>
     )
 }

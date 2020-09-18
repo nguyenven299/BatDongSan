@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import {
     View,
@@ -10,12 +10,14 @@ import {
     KeyboardAvoidingView, Alert
 
 } from 'react-native';
+import { UserContext } from '../../../App';
 
 const Login = ({ navigation }) => {
     const [Icons, setIcon] = useState("eye")
     const [Account, setAccount] = useState()
     const [Password, setPassword] = useState()
     const [hidePassword, setHidePassword] = useState(true)
+    const userContext = useContext(UserContext)
     return (
         <KeyboardAvoidingView
             behavior={"height"}
@@ -189,7 +191,6 @@ const Login = ({ navigation }) => {
                                 </Text>
                                 </TouchableOpacity>
                             </ImageBackground>
-
                         </View>
                         <View
                             style=
@@ -209,19 +210,16 @@ const Login = ({ navigation }) => {
                                     height: 40,
                                     borderRadius: 20,
                                     justifyContent: 'center',
-
                                 }}
                                 onPress={
                                     () => {
                                         if (Account != "undefined" && Account != null && Password != "undefined" && Password != null) {
-                                            navigation.navigate('TabNavigation')
+                                            userContext.setUser("LogIn")
                                         }
                                         else {
                                             Alert.alert("Vui lòng nhập đầy đủ dữ liệu")
                                         }
-
                                     }
-
                                 }
                             >
                                 <Text
@@ -234,7 +232,6 @@ const Login = ({ navigation }) => {
                                     Đăng Nhập
                             </Text>
                             </TouchableOpacity>
-
                             <TouchableOpacity
                                 style=
                                 {{
@@ -246,7 +243,10 @@ const Login = ({ navigation }) => {
                                     marginStart: 35
                                 }}
                                 onPress={
-                                    () => navigation.navigate('SignIn')
+                                    () => {
+                                        // navigation.navigate('SignIn')
+                                        userContext.setUser("SignIn")
+                                    }
                                 }
                             >
                                 <Text
@@ -261,13 +261,8 @@ const Login = ({ navigation }) => {
                             </TouchableOpacity>
                         </View>
                     </View>
-
-
-
                 </ImageBackground>
-
             </View>
-
         </KeyboardAvoidingView>
     )
 }

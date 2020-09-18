@@ -1,48 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 import LogIn from './src/component/Start/Login.js'
 import SignIn from './src/component/Start/SignIn.js'
 import TabNavigation from './src/component/navigation/TabNavigation.js'
+import LoginNavigation from './src/component/navigation/LoginNavigation.js';
+
+export const UserContext = React.createContext()
 
 const App = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Login"
-          component={LogIn}
-          options=
-          {{
-            headerShown: false
-          }}
-        />
-        <Stack.Screen
-          name="SignIn"
-          component={SignIn}
-          options=
-          {{
-            headerStyle: { backgroundColor: '#FFA400' },
-            headerTitle: ''
-          }}
-        />
-        <Stack.Screen
-          name="TabNavigation"
-          component={TabNavigation}
-          options=
-          {{
-            headerStyle: { backgroundColor: '#FFA400' },
-            // headerTitle: '123',
-            headerLeft: null,
-            headerTintColor: 'white',
-            // headerShown: false
-            title: null
-          }}
-        />
+  const [user, setUser] = useState(null)
 
-      </Stack.Navigator>
-    </NavigationContainer>
+  return (
+    // Provider - thay đôi ngữ cảnh 
+    <UserContext.Provider value={{ user: user, setUser: setUser }}>
+      {
+        user == null ? (<LoginNavigation />) : (
+          user == "LogIn" ? (<TabNavigation />) : (
+            user == "SignIn" ? (<SignIn />) : (<TabNavigation />)
+          )
+        )
+
+      }
+
+
+    </UserContext.Provider>
   );
 };
 export default App;

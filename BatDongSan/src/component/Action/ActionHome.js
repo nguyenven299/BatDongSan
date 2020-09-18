@@ -19,7 +19,6 @@ const ActionHome = () => {
             }}
         >
             <Action></Action>
-            <BirthDate></BirthDate>
         </View>
     )
 }
