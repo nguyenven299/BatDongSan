@@ -220,8 +220,8 @@ const Home = ({ navigation }) => {
                                     height: 50,
                                     width: 250,
                                     justifyContent: 'center',
-
                                 }}
+
                             >
                                 <Text
                                     style=

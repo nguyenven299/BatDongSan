@@ -96,9 +96,10 @@ const Login = ({ navigation }) => {
                                             borderRadius: 20,
                                             marginTop: 10,
                                             paddingLeft: 20,
-                                            paddingRight: 30
+                                            paddingRight: 30,
                                         }}
                                         onChangeText={text => setAccount(text)}
+
                                     >
                                     </TextInput>
                                     <FontAwesome name="user" color={"#D88B00"} size={20}

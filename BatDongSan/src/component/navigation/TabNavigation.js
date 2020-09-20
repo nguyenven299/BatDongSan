@@ -1,8 +1,8 @@
 import * as React from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import Home from '../Action/Home.js'
-import User from '../User/User.js'
-// import User from '../Action/Navigation/Action.js'
+// import User from '../User/User.js'
+import User from '../Action/CreateReceptions'
 import Sale from '../Sale/Sale.js'
 import Agency from '../Agency/agency.js'
 import Manager from '../Manager/manager.js'
