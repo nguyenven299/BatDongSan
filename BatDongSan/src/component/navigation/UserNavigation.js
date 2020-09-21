@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from '../Action/Home.js'
-import MakeACall from '../Action/More/MakeACall'
-import CreateReceptions from '../Action/More/CreateReceptions'
+import User from '../User/User'
 import { ImageBackground, Image } from 'react-native';
-import { max } from 'moment';
 import { TouchableOpacity, Text, Button } from 'react-native-gesture-handler';
-
+import Customer from '../User/Customer'
 const Stack = createStackNavigator();
 function LogoTitle() {
     return (
@@ -20,15 +17,15 @@ function LogoTitle() {
         />
     );
 }
-const HomeNavigation = () => {
+const UserNavigation = () => {
     return (
         <Stack.Navigator>
 
             <Stack.Screen
-                name="Home" component={Home}
+                name="User" component={User}
                 options=
                 {{
-                    title: 'Công việc của tôi',
+                    title: null,
                     headerTintColor: '#fff',
                     headerBackground: props => <LogoTitle {...props} />,
                     // headerRight: () => (
@@ -40,9 +37,8 @@ const HomeNavigation = () => {
                     // ),
                 }}
             />
-
             <Stack.Screen
-                name="MakeACall" component={MakeACall}
+                name="Customer" component={Customer}
                 options=
                 {{
                     headerTintColor: '#fff',
@@ -50,16 +46,8 @@ const HomeNavigation = () => {
 
                 }}
             />
-            <Stack.Screen
-                name="CreateReceptions" component={CreateReceptions}
-                options=
-                {{
-                    headerTintColor: '#fff',
-                    headerBackground: props => <LogoTitle {...props} />,
 
-                }}
-            />
         </Stack.Navigator>
     )
 }
-export default HomeNavigation;
+export default UserNavigation;

@@ -221,6 +221,12 @@ const Home = ({ navigation }) => {
                                     width: 250,
                                     justifyContent: 'center',
                                 }}
+                                onPress={
+                                    () => {
+                                        navigation.navigate("MakeACall"),
+                                            setModalVisible(!modalVisible);
+
+                                    }}
 
                             >
                                 <Text
@@ -243,6 +249,12 @@ const Home = ({ navigation }) => {
                                     textAlign: 'center',
 
                                 }}
+                                onPress={
+                                    () => {
+                                        navigation.navigate("CreateReceptions"),
+                                            setModalVisible(!modalVisible);
+
+                                    }}
                             >
                                 <Text
                                     style=
