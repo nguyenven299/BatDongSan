@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import User from '../Customer/Customer'
+import Agency from '../Agency/Aagency'
+import Information from '../Agency/More/Infomation'
 import { ImageBackground, Image } from 'react-native';
+import { max } from 'moment';
 import { TouchableOpacity, Text, Button } from 'react-native-gesture-handler';
-import Customer from '../Customer/CreateCustomer'
 const Stack = createStackNavigator();
 function LogoTitle() {
     return (
@@ -17,15 +18,14 @@ function LogoTitle() {
         />
     );
 }
-const UserNavigation = () => {
+const AgencyNavigation = () => {
     return (
         <Stack.Navigator>
 
             <Stack.Screen
-                name="User" component={User}
+                name="Agnecy" component={Agency}
                 options=
                 {{
-                    title: null,
                     headerTintColor: '#fff',
                     headerBackground: props => <LogoTitle {...props} />,
                     // headerRight: () => (
@@ -38,16 +38,22 @@ const UserNavigation = () => {
                 }}
             />
             <Stack.Screen
-                name="Customer" component={Customer}
+                name="Information" component={Information}
                 options=
                 {{
                     headerTintColor: '#fff',
                     headerBackground: props => <LogoTitle {...props} />,
-
+                    // headerRight: () => (
+                    //     <Button
+                    //         onPress={() => alert('This is a button!')}
+                    //         title="Info"
+                    //         color="#fff"
+                    //     />
+                    // ),
                 }}
             />
 
         </Stack.Navigator>
     )
 }
-export default UserNavigation;
+export default AgencyNavigation;

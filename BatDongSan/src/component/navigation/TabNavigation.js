@@ -1,13 +1,13 @@
 import * as React from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 
-import User from '../User/User.js'
+
 // import User from '../navigation/MoalNavigation.js'
-import Sale from '../Sale/Sale.js'
-import Agency from '../Agency/agency.js'
+import AngencyNavigation from './AgencyNavigation'
 import Manager from '../Manager/manager.js'
-import HomeNavigation from '../navigation/HomeNavigation.js'
-import UserNavigation from '../navigation/UserNavigation.js'
+import HomeNavigation from '../Navigation/HomeNavigation.js'
+import UserNavigation from '../Navigation/UserNavigation.js'
+import SaleNavigation from '../Navigation/SaleNavigation.js'
 import { ImageBackground, View, TouchableOpacity, Text, Alert } from 'react-native';
 
 // const Tab = createMaterialBottomTabNavigator();
@@ -142,10 +142,10 @@ const TabNavigation = () => {
                     name="Khách hàng" component={UserNavigation}
                 />
                 <Tab.Screen
-                    name="Bán hàng" component={Sale}
+                    name="Bán hàng" component={SaleNavigation}
                 />
                 <Tab.Screen
-                    name="Môi giới lẻ" component={Agency}
+                    name="Môi giới lẻ" component={AngencyNavigation}
                 />
                 <Tab.Screen
                     name="Quản lý" component={Manager}

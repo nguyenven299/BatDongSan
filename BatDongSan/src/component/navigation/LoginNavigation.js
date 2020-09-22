@@ -20,7 +20,7 @@ const LoginNavigation = () => {
                     options=
                     {{
                         headerStyle: { backgroundColor: '#FFA400' },
-                        headerTitle: ''
+                        headerShown: false
                     }}
                 />
             </Stack.Navigator>

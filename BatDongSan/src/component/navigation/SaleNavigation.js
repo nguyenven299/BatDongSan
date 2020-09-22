@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import User from '../Customer/Customer'
+import Sale from '../Sale/Sale'
+import CreateSale from '../Sale/More/CreateSale.js'
 import { ImageBackground, Image } from 'react-native';
+import { max } from 'moment';
 import { TouchableOpacity, Text, Button } from 'react-native-gesture-handler';
-import Customer from '../Customer/CreateCustomer'
 const Stack = createStackNavigator();
 function LogoTitle() {
     return (
@@ -17,15 +18,14 @@ function LogoTitle() {
         />
     );
 }
-const UserNavigation = () => {
+const SaleNavigation = () => {
     return (
         <Stack.Navigator>
 
             <Stack.Screen
-                name="User" component={User}
+                name="Sale" component={Sale}
                 options=
                 {{
-                    title: null,
                     headerTintColor: '#fff',
                     headerBackground: props => <LogoTitle {...props} />,
                     // headerRight: () => (
@@ -37,17 +37,17 @@ const UserNavigation = () => {
                     // ),
                 }}
             />
+
             <Stack.Screen
-                name="Customer" component={Customer}
+                name="CreateSale" component={CreateSale}
                 options=
                 {{
                     headerTintColor: '#fff',
                     headerBackground: props => <LogoTitle {...props} />,
-
+                    headerTitle: 'Đề xuất bán si'
                 }}
             />
-
         </Stack.Navigator>
     )
 }
-export default UserNavigation;
+export default SaleNavigation;

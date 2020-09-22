@@ -214,6 +214,34 @@ const Login = ({ navigation }) => {
                                 }}
                                 onPress={
                                     () => {
+                                        navigation.navigate('SignIn')
+
+                                    }
+                                }
+                            >
+                                <Text
+                                    style=
+                                    {{
+                                        textAlign: 'center',
+                                        color: '#AA8338'
+                                    }}
+                                >
+                                    Đăng Ký
+
+                            </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style=
+                                {{
+                                    backgroundColor: "#FFEEB6",
+                                    width: 120,
+                                    height: 40,
+                                    borderRadius: 20,
+                                    justifyContent: 'center',
+                                    marginStart: 35
+                                }}
+                                onPress={
+                                    () => {
                                         if (Account != "undefined" && Account != null && Password != "undefined" && Password != null) {
                                             userContext.setUser("LogIn")
                                         }
@@ -231,33 +259,7 @@ const Login = ({ navigation }) => {
                                     }}
                                 >
                                     Đăng Nhập
-                            </Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                style=
-                                {{
-                                    backgroundColor: "#FFEEB6",
-                                    width: 120,
-                                    height: 40,
-                                    borderRadius: 20,
-                                    justifyContent: 'center',
-                                    marginStart: 35
-                                }}
-                                onPress={
-                                    () => {
-                                        // navigation.navigate('SignIn')
-                                        userContext.setUser("SignIn")
-                                    }
-                                }
-                            >
-                                <Text
-                                    style=
-                                    {{
-                                        textAlign: 'center',
-                                        color: '#AA8338'
-                                    }}
-                                >
-                                    Đăng Ký
+
                             </Text>
                             </TouchableOpacity>
                         </View>

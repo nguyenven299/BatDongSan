@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import TextComponent from '../../common/InputTextComponent'
 import ButtonConponent from '../../common/ButtonComponent'
-
+import ReceiverList from '../Action/Modal/ReceiverList'
 import {
     View,
     Text,
@@ -159,7 +159,7 @@ const User = ({ navigation }) => {
 
                 />
             </TouchableOpacity>
-
+            <ReceiverList />
             <Modal
                 animationType="slide"
                 transparent={true}

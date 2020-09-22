@@ -8,14 +8,20 @@ import {
     Image,
     TextInput,
     TouchableOpacity,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    ScrollView
 } from 'react-native';
 const MyWork = () => {
     return (
         <View>
-            <Text>
-                quản lý
-          </Text>
+            <ScrollView>
+                <Text>123</Text>
+                <Text>456</Text>
+                <Text>789</Text>
+                <Text>1234</Text>
+                <Text>576</Text>
+
+            </ScrollView>
         </View>
     )
 }
