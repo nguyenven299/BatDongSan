@@ -75,11 +75,10 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
         case "Môi giới":
             Customer = [
                 {
-
                     Ten: "Yêu cầu môi giới",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('123')
+                        navigation.navigate("AgencyRequest")
                     }
                 },
                 {

@@ -23,7 +23,7 @@ const Manage = ({ navigation }) => {
             <ScrollView>
                 <ScrollComponent textName="Bán hàng" navigation={navigation} />
                 <ScrollComponent textName="Góp vốn" navigation={navigation} />
-                <ScrollComponent textName="Môi giới" />
+                <ScrollComponent textName="Môi giới" navigation={navigation} />
                 <ScrollComponent textName="Hợp đồng" />
                 <ScrollComponent textName="Tiện ích" />
             </ScrollView>

@@ -9,10 +9,9 @@ import Deposit from '../Manager/More/Sale/Deposit'
 import CancelDeposit from '../Manager/More/Sale/CancelDeposit'
 import Action from '../Manager/More/CapitalContribution/Action'
 import Offer from '../Manager/More/CapitalContribution/Offer'
-import Information from '../Manager/More/CapitalContribution/Information'
-import PaymentPolicy from '../Manager/More/CapitalContribution/PaymentPolicy'
-import Revenue from '../Manager/More/CapitalContribution/Revenue'
 import CreateRevenue from '../Manager/More/CapitalContribution/CreateRevenue'
+import AgencyRequest from '../Manager/More/Agency/AgencyRequest'
+import CreateAgency from '../Manager/More/Agency/CreateAgency'
 import { ImageBackground, Image } from 'react-native';
 import { max } from 'moment';
 import { TouchableOpacity, Text, Button } from 'react-native-gesture-handler';
@@ -118,6 +117,24 @@ const ManageNavigation = () => {
             />
             <Stack.Screen
                 name="CreateRevenue" component={CreateRevenue}
+                options=
+                {{
+                    // title: 'Quản lý',
+                    headerTintColor: '#fff',
+                    headerBackground: props => <LogoTitle {...props} />,
+                }}
+            />
+            <Stack.Screen
+                name="AgencyRequest" component={AgencyRequest}
+                options=
+                {{
+                    // title: 'Quản lý',
+                    headerTintColor: '#fff',
+                    headerBackground: props => <LogoTitle {...props} />,
+                }}
+            />
+            <Stack.Screen
+                name="CreateAgency" component={CreateAgency}
                 options=
                 {{
                     // title: 'Quản lý',
