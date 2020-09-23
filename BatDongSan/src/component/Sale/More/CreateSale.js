@@ -3,6 +3,7 @@ import FontAwesome from "react-native-vector-icons/MaterialIcons"
 import TextInputCoponent from '../../../common/InputTextComponent'
 import ButtonComponent from '../../../common/ButtonComponent'
 import MultiLineInputTextComponent from '../../../common/MultiLineTextInputComponent'
+import ButtonRefesh from '../../../common/ButtonRefesh'
 import {
     View,
     Text,
@@ -15,25 +16,6 @@ import {
     ScrollView
 } from 'react-native';
 import { HeaderTitle } from '@react-navigation/stack';
-const IconRefesh = () => {
-    return (
-        <TouchableOpacity
-            style=
-            {{
-                position: 'absolute',
-                right: 20,
-                bottom: 15
-            }}
-        >
-            <FontAwesome
-                name="loop" color="black" size={20}
-
-            />
-        </TouchableOpacity>
-
-    )
-
-}
 const CreateSale = ({ navigation }) => {
     navigation.setOptions({
         headerRight: () => (
@@ -72,27 +54,8 @@ const CreateSale = ({ navigation }) => {
                 <ButtonComponent textName="Chi nhánh ngân hàng" />
                 <MultiLineInputTextComponent textName="Diễn giải" />
                 <ButtonComponent textName="Trạng thái" />
-                <View
-                    style={style.viewStyle}
-                >
-                    <Text
-                        style={style.textStyle}
-                    >
-                        Khách hàng đồng sở hữu
-                    </Text>
-                    <IconRefesh />
-                </View>
-                <View
-                    style={style.viewStyle}
-                >
-                    <Text
-                        style={style.textStyle}
-                    >
-                        Khách hàng đồng sở hữu
-                    </Text>
-                    <IconRefesh />
-
-                </View>
+                <ButtonRefesh textName="Khách hàng đồng sở hữu" />
+                <ButtonRefesh textName="Sản phẩm bán sỉ" />
 
             </ScrollView>
         </View>

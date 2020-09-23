@@ -11,8 +11,6 @@ import {
     StyleSheet, Modal,
     ScrollView, Alert
 } from 'react-native';
-import Customer from '../component/Customer/CreateCustomer';
-
 const ModalComponent = ({ setModalVisible1, visible, setModel, Mode }) => {
     var Customer = null;
     switch (Mode) {
@@ -94,6 +92,8 @@ const ModalComponent = ({ setModalVisible1, visible, setModel, Mode }) => {
                     }
                 }
             ]
+            break;
+
         default:
 
             break;
@@ -195,6 +195,7 @@ const ModalComponent = ({ setModalVisible1, visible, setModel, Mode }) => {
                     </View>
                 </View>
             </Modal>
+
         </View>
 
 
@@ -213,12 +214,22 @@ const style = StyleSheet.create({
         alignItems: "center",
         backgroundColor: 'rgba(0,0,0,0.5)'
     },
+
     textStyle:
     {
         color: "black",
         fontSize: 20,
         marginLeft: 15,
-        marginTop: 20
+        marginTop: 20,
+        textAlign: 'center'
+    },
+    textStyle1:
+    {
+        color: "black",
+        fontSize: 15,
+        marginLeft: 15,
+        marginTop: 5,
+        textAlign: 'center'
     },
     textStyleClose:
     {

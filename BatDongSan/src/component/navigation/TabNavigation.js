@@ -4,10 +4,11 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 
 // import User from '../navigation/MoalNavigation.js'
 import AngencyNavigation from './AgencyNavigation'
-import Manager from '../Manager/manager.js'
+import Manage from '../Manager/Manage.js'
 import HomeNavigation from '../Navigation/HomeNavigation.js'
 import UserNavigation from '../Navigation/UserNavigation.js'
 import SaleNavigation from '../Navigation/SaleNavigation.js'
+import ManageNavigation from '../Navigation/ManageNavigation.js'
 import { ImageBackground, View, TouchableOpacity, Text, Alert } from 'react-native';
 
 // const Tab = createMaterialBottomTabNavigator();
@@ -148,7 +149,7 @@ const TabNavigation = () => {
                     name="Môi giới lẻ" component={AngencyNavigation}
                 />
                 <Tab.Screen
-                    name="Quản lý" component={Manager}
+                    name="Quản lý" component={ManageNavigation}
                 />
 
             </Tab.Navigator>

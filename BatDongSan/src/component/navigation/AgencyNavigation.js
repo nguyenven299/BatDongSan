@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Agency from '../Agency/Aagency'
-import Information from '../Agency/More/Infomation'
-import { ImageBackground, Image } from 'react-native';
-import { max } from 'moment';
-import { TouchableOpacity, Text, Button } from 'react-native-gesture-handler';
+import Deposit from '../Agency/More/Deposit'
+import { Image } from 'react-native';
+
 const Stack = createStackNavigator();
 function LogoTitle() {
     return (
@@ -28,28 +27,14 @@ const AgencyNavigation = () => {
                 {{
                     headerTintColor: '#fff',
                     headerBackground: props => <LogoTitle {...props} />,
-                    // headerRight: () => (
-                    //     <Button
-                    //         onPress={() => alert('This is a button!')}
-                    //         title="Info"
-                    //         color="#fff"
-                    //     />
-                    // ),
                 }}
             />
             <Stack.Screen
-                name="Information" component={Information}
+                name="Deposit" component={Deposit}
                 options=
                 {{
                     headerTintColor: '#fff',
                     headerBackground: props => <LogoTitle {...props} />,
-                    // headerRight: () => (
-                    //     <Button
-                    //         onPress={() => alert('This is a button!')}
-                    //         title="Info"
-                    //         color="#fff"
-                    //     />
-                    // ),
                 }}
             />
 

@@ -5,18 +5,14 @@ import ModalComponent from '../../common/ModalComponent'
 import {
     View,
     Text,
-    ImageBackground,
-    Image,
-    TextInput,
     TouchableOpacity,
-    KeyboardAvoidingView,
-    StyleSheet
+    StyleSheet,
+    TextInput
 } from 'react-native';
 
 const Agency = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [Model, setModel] = useState("DỰ ÁN KHU DAN CƯ KIM OANH")
-
     navigation.setOptions({
         headerRight: () => (
             <View
@@ -57,7 +53,7 @@ const Agency = ({ navigation }) => {
                     onPress=
                     {
                         () => {
-                            navigation.navigate("Information")
+                            navigation.navigate("Deposit")
                         }
                     }
                     style={style.iconButtonStyle}
@@ -111,9 +107,36 @@ const Agency = ({ navigation }) => {
     });
     return (
         <View>
-            <Text>
-                mô giới
-          </Text>
+            <View
+                style=
+                {{
+                    backgroundColor: '#C5C3C5',
+                    marginHorizontal: 10,
+                    height: 50,
+                    flexDirection: 'row',
+                    marginTop: 5
+                }}
+            >
+                <FontAwesome
+                    name="search" size={20} color="#A09EA0"
+                    style=
+                    {{
+                        margin: 15
+                    }}
+                />
+
+                <TextInput
+                    style=
+                    {{
+                        width: "80%",
+                        height: 50,
+                        fontSize: 17
+                    }}
+                    placeholder="Tìm kiếm"
+                >
+
+                </TextInput>
+            </View>
         </View>
     )
 }

@@ -4,18 +4,13 @@ import ModalComponent from '../../common/ModalComponent'
 import {
     View,
     Text,
-    ImageBackground,
-    Image,
     TextInput,
     TouchableOpacity,
-    KeyboardAvoidingView,
-    StyleSheet, Modal,
-    ScrollView
+    StyleSheet
 } from 'react-native';
 const Sale = ({ navigation }) => {
     const [Model, setModel] = useState("Testing-DB-DCho-2209")
     const [modalVisible, setModalVisible] = useState(false);
-
     navigation.setOptions({
         headerRight: () => (
             <View
@@ -304,7 +299,6 @@ const Sale = ({ navigation }) => {
             </TouchableOpacity>
 
         </View>
-
     )
 }
 const style = StyleSheet.create({
