@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
-import ModalManageComponent from '../../../../common/ModalManageComponent'
 import InputTextSearchComponent from '../../../../common/InputTextSearchComponent'
-
+import ModalManageComponent from '../../../../common/ModalManageComponent'
 import {
     View,
     Text,
@@ -11,17 +10,16 @@ import {
     TextInput
 } from 'react-native';
 
-const Deposit = ({ navigation }) => {
+const Rule = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [Model, setModel] = useState("Khởi tạo")
     navigation.setOptions({
-
         headerTitle: () =>
             (
                 <TouchableOpacity
                     style=
                     {{
-                        width: 300,
+                        width: 320,
                         height: 70,
                         flexDirection: 'row'
                     }}
@@ -31,18 +29,18 @@ const Deposit = ({ navigation }) => {
                         }}
                 >
                     <ModalManageComponent
-                        visible={modalVisible} setModalVisible1={setModalVisible} setModel={setModel} Mode={"Phiếu đặt cọc"}
+                        visible={modalVisible} setModalVisible1={setModalVisible} setModel={setModel} Mode={"HĐ nguyên tắc"}
                     />
 
                     <Text
                         style=
                         {{
                             fontSize: 20,
-                            margin: 20,
+                            marginVertical: 20,
                             color: 'white'
                         }}
                     >
-                        Đề xuất khởi tạo - {Model}
+                        HĐ nguyên tắc - {Model}
                     </Text>
                     <FontAwesome name="caret-down" size={20} color="#9B999B"
                         style=
@@ -72,4 +70,4 @@ const style = StyleSheet.create({
         marginRight: 5
     }
 })
-export default Deposit;
+export default Rule;

@@ -102,7 +102,7 @@ const ModalManageComponent = ({ setModalVisible1, visible, setModel, Mode }) => 
                 }
             ]
             break;
-        case "Phiếu đặt cọc":
+        case "Phiếu đặt cọc" && "Phiếu đặt cọc":
             Customer = [
                 {
 
@@ -279,8 +279,140 @@ const ModalManageComponent = ({ setModalVisible1, visible, setModel, Mode }) => 
                 },
             ]
             break;
-        default:
+        case "HĐ nguyên tắc" && "Hợp đồng vay" && "Hợp đồng mua bán" && "Hợp đồng dịch vụ":
+            Customer = [
+                {
 
+                    Ten: "Khởi tạo",
+                    chucNang: () => {
+                        setModel("Khởi tạo")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Đã duyệt",
+                    chucNang: () => {
+                        setModel("Đã duyệt")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Đã trình ký",
+                    chucNang: () => {
+                        setModel("Đã trình ký")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Đã ký",
+                    chucNang: () => {
+                        setModel("Đã ký")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Đã bàn giao về sàn",
+                    chucNang: () => {
+                        setModel("Đã bàn giao về sàn")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Đã bàn giao về KH",
+                    chucNang: () => {
+                        setModel("Đã bàn giao về KH")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Hoàn tất",
+                    chucNang: () => {
+                        setModel("Hoàn tất")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Thanh lý",
+                    chucNang: () => {
+                        setModel("Thanh lý")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Hủy",
+                    chucNang: () => {
+                        setModel("Hủy")
+                        setModalVisible1(!visible)
+                    }
+                },
+            ]
+            break;
+        case "Yêu cầu book chéo":
+            Customer = [
+                {
+
+                    Ten: "Khởi tạo",
+                    chucNang: () => {
+                        setModel("Khởi tạo")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Đã duyệt",
+                    chucNang: () => {
+                        setModel("Đã duyệt")
+                        setModalVisible1(!visible)
+                    }
+                },
+
+            ]
+            break;
+        case "Đề xuất chuyển tên":
+            Customer = [
+                {
+
+                    Ten: "Khởi tạo",
+                    chucNang: () => {
+                        setModel("Khởi tạo")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Đang duyệt",
+                    chucNang: () => {
+                        setModel("Đang duyệt")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Đã duyệt",
+                    chucNang: () => {
+                        setModel("Đã duyệt")
+                        setModalVisible1(!visible)
+                    }
+                },
+                {
+
+                    Ten: "Hủy",
+                    chucNang: () => {
+                        setModel("Hủy")
+                        setModalVisible1(!visible)
+                    }
+                },
+            ]
+            break;
+        default:
             break;
     }
 

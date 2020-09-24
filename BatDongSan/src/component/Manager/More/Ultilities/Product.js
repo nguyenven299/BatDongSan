@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import InputTextSearchComponent from '../../../../common/InputTextSearchComponent'
-
+import ModalManageComponent from '../../../../common/ModalManageComponent'
 import {
     View,
     Text,
@@ -10,28 +10,29 @@ import {
     TextInput
 } from 'react-native';
 
-const Booking = ({ navigation }) => {
-    const [modalVisible, setModalVisible] = useState(false);
-    const [Model, setModel] = useState("Khởi tạo")
-    navigation.setOptions({
+const Product = ({ navigation }) => {
 
+    navigation.setOptions({
         headerTitle: () =>
             (
+
+
                 <Text
                     style=
                     {{
                         fontSize: 20,
-                        margin: 20,
+                        marginVertical: 20,
                         color: 'white'
                     }}
                 >
-                    Danh sách Booking
+                    Sản phẩm khóa
                 </Text>
+
             )
     });
     return (
         <View>
-            <InputTextSearchComponent />
+
         </View>
     )
 }
@@ -46,4 +47,4 @@ const style = StyleSheet.create({
         marginRight: 5
     }
 })
-export default Booking;
+export default Product;

@@ -43,7 +43,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                 },
                 {
 
-                    Ten: "Yêu cầu đặt cọc",
+                    Ten: "Yêu cầu hủy đặt cọc",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
                         navigation.navigate("CancelDeposit")
@@ -86,7 +86,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "Phiếu đặt cọc(72h)",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate('DepositSlip')
                     }
                 },
                 {
@@ -94,7 +94,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "Phiếu đặt cọc 3 bên",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate('DepositSlip3')
                     }
                 },
             ]
@@ -106,7 +106,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "HĐ nguyên tắc",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('123')
+                        navigation.navigate('Rule')
                     }
                 },
                 {
@@ -114,7 +114,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "HĐ vay",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate("Borrow")
                     }
                 },
                 {
@@ -122,7 +122,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "HĐ mua bán",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate("Sale")
                     }
                 },
                 {
@@ -130,7 +130,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "HĐ dịch vụ",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate("Services")
                     }
                 },
             ]
@@ -142,7 +142,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "Doanh thi hoa hồng",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('123')
+                        navigation.navigate("Revenue")
                     }
                 },
                 {
@@ -150,7 +150,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "SP khóa",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate("Product")
                     }
                 },
                 {
@@ -158,7 +158,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "SP yêu thích",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate("FavoriteProduct")
                     }
                 },
                 {
@@ -166,7 +166,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "Văn bản đặc biệt",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate("Document")
                     }
                 },
                 {
@@ -174,7 +174,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "Tài khoản",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate("Account")
                     }
                 },
                 {
@@ -182,7 +182,7 @@ const MultiLineTextInputComponent = ({ textName, navigation }) => {
                     Ten: "Yêu cầu book chéo",
                     More: 'Mua sỉ bán lẻ',
                     chucNang: () => {
-                        alert('456')
+                        navigation.navigate("Book")
                     }
                 },
             ]

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import ModalManageComponent from '../../../../common/ModalManageComponent'
 import InputTextSearchComponent from '../../../../common/InputTextSearchComponent'
-
 import {
     View,
     Text,
@@ -11,11 +10,30 @@ import {
     TextInput
 } from 'react-native';
 
-const Deposit = ({ navigation }) => {
+const Rename = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [Model, setModel] = useState("Khởi tạo")
     navigation.setOptions({
+        headerRight: () => (
 
+            <TouchableOpacity
+                onPress=
+                {
+                    () => {
+                        navigation.navigate("CreateRename")
+                    }
+                }
+                style={{
+                    padding: 5,
+                    margin: 10
+                }}
+            >
+                <FontAwesome
+                    name="plus" size={20} color='white'
+                    style={{ marginRight: 5 }}
+                ></FontAwesome>
+            </TouchableOpacity>
+        ),
         headerTitle: () =>
             (
                 <TouchableOpacity
@@ -31,7 +49,7 @@ const Deposit = ({ navigation }) => {
                         }}
                 >
                     <ModalManageComponent
-                        visible={modalVisible} setModalVisible1={setModalVisible} setModel={setModel} Mode={"Phiếu đặt cọc"}
+                        visible={modalVisible} setModalVisible1={setModalVisible} setModel={setModel} Mode={"Đề xuất chuyển tên"}
                     />
 
                     <Text
@@ -42,7 +60,7 @@ const Deposit = ({ navigation }) => {
                             color: 'white'
                         }}
                     >
-                        Đề xuất khởi tạo - {Model}
+                        Đề xuất chuyển tên - {Model}
                     </Text>
                     <FontAwesome name="caret-down" size={20} color="#9B999B"
                         style=
@@ -72,4 +90,4 @@ const style = StyleSheet.create({
         marginRight: 5
     }
 })
-export default Deposit;
+export default Rename;

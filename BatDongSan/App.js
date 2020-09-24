@@ -4,6 +4,8 @@ import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 import TabNavigation from './src/component/Navigation/TabNavigation.js'
 import LoginNavigation from './src/component/Navigation/LoginNavigation.js';
+// import LoginNavigation from './src/component/Manager/More/Ultilities/ChangePassword';
+
 
 export const UserContext = React.createContext()
 

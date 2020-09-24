@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import InputTextSearchComponent from '../../../../common/InputTextSearchComponent'
-
 import {
     View,
     Text,
@@ -10,23 +9,23 @@ import {
     TextInput
 } from 'react-native';
 
-const Booking = ({ navigation }) => {
-    const [modalVisible, setModalVisible] = useState(false);
-    const [Model, setModel] = useState("Khởi tạo")
+const DespositSlip3 = ({ navigation }) => {
     navigation.setOptions({
-
         headerTitle: () =>
             (
+
                 <Text
                     style=
                     {{
                         fontSize: 20,
-                        margin: 20,
+                        marginVertical: 20,
                         color: 'white'
                     }}
                 >
-                    Danh sách Booking
+                    Phiếu đặt cọc bên 3
                 </Text>
+
+
             )
     });
     return (
@@ -46,4 +45,4 @@ const style = StyleSheet.create({
         marginRight: 5
     }
 })
-export default Booking;
+export default DespositSlip3;

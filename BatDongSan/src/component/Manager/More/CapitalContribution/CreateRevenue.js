@@ -3,6 +3,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 import Information from '../CapitalContribution/Information'
 import Revenue from '../CapitalContribution/Revenue'
 import PaymentPolicy from '../CapitalContribution/PaymentPolicy'
+
 import {
     ImageBackground,
     View,

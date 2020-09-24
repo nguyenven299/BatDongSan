@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
-import ModalManageComponent from '../../../../common/ModalManageComponent'
 import InputTextSearchComponent from '../../../../common/InputTextSearchComponent'
-
+import ModalManageComponent from '../../../../common/ModalManageComponent'
 import {
     View,
     Text,
@@ -11,17 +10,16 @@ import {
     TextInput
 } from 'react-native';
 
-const Deposit = ({ navigation }) => {
+const Revenue = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [Model, setModel] = useState("Khởi tạo")
     navigation.setOptions({
-
         headerTitle: () =>
             (
                 <TouchableOpacity
                     style=
                     {{
-                        width: 300,
+                        width: 320,
                         height: 70,
                         flexDirection: 'row'
                     }}
@@ -38,11 +36,11 @@ const Deposit = ({ navigation }) => {
                         style=
                         {{
                             fontSize: 20,
-                            margin: 20,
+                            marginVertical: 20,
                             color: 'white'
                         }}
                     >
-                        Đề xuất khởi tạo - {Model}
+                        Phiếu đặt cọc - {Model}
                     </Text>
                     <FontAwesome name="caret-down" size={20} color="#9B999B"
                         style=
@@ -72,4 +70,4 @@ const style = StyleSheet.create({
         marginRight: 5
     }
 })
-export default Deposit;
+export default Revenue;
