@@ -44,7 +44,7 @@ const ButtonAccountComponent = ({ textName, navigation }) => {
                         // )
                         switch (textName) {
                             case "Đổi mật khẩu":
-                                navigation.navigate("ChangePassword")
+                                navigation.navigate("DoiMatKhau")
                                 break;
                             case "Chỉnh sửa thông tin":
                                 setVisible(!visible)

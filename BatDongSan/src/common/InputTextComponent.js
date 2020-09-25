@@ -2,7 +2,7 @@ import React from 'react'
 import {
     TextInput, View, Text
 } from 'react-native';
-import ReceiverList from '../component/Action/Modal/ReceiverList'
+
 
 function InputTextComponent({ textName }) {
     return (

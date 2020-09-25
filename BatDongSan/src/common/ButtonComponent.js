@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import FontAwesome from "react-native-vector-icons/FontAwesome"
-import ReceiverList from '../component/Action/Modal/ReceiverList'
 
 import {
     ImageBackground,

@@ -3,12 +3,11 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 
 
 // import User from '../navigation/MoalNavigation.js'
-import AngencyNavigation from './AgencyNavigation'
-import Manage from '../Manager/Manage.js'
-import HomeNavigation from '../Navigation/HomeNavigation.js'
-import UserNavigation from '../Navigation/UserNavigation.js'
-import SaleNavigation from '../Navigation/SaleNavigation.js'
-import ManageNavigation from '../Navigation/ManageNavigation.js'
+import MoiGioiNavigation from './MoiGioiNavigation'
+import HoatDongNavigation from '../Navigation/HoatDongNavigation.js'
+import KhachHangNavigation from '../Navigation/KhachHangNavigation.js'
+import BanHangNavigation from '../Navigation/BanHangNavigation.js'
+import QuanLyNavigation from '../Navigation/QuanLyNavigation.js'
 import { ImageBackground, View, TouchableOpacity, Text, Alert } from 'react-native';
 
 // const Tab = createMaterialBottomTabNavigator();
@@ -137,19 +136,19 @@ const TabNavigation = () => {
                 }}
             >
                 <Tab.Screen
-                    name='Hoạt động' component={HomeNavigation}
+                    name='Hoạt động' component={HoatDongNavigation}
                 />
                 <Tab.Screen
-                    name="Khách hàng" component={UserNavigation}
+                    name="Khách hàng" component={KhachHangNavigation}
                 />
                 <Tab.Screen
-                    name="Bán hàng" component={SaleNavigation}
+                    name="Bán hàng" component={BanHangNavigation}
                 />
                 <Tab.Screen
-                    name="Môi giới lẻ" component={AngencyNavigation}
+                    name="Môi giới lẻ" component={MoiGioiNavigation}
                 />
                 <Tab.Screen
-                    name="Quản lý" component={ManageNavigation}
+                    name="Quản lý" component={QuanLyNavigation}
                 />
 
             </Tab.Navigator>
