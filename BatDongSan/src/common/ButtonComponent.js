@@ -983,7 +983,7 @@ function InputTextComponent({ textName }) {
                                 width: 300
                             }}
                         >
-                            <ReceiverList></ReceiverList>
+
 
                         </View>
 

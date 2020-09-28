@@ -3,15 +3,11 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 import HanhDong from './Navigation/HanhDong.js'
 import SinhNhat from './Navigation/SinhNhat'
 import {
-    ImageBackground,
     View,
     Text,
     TouchableOpacity,
     Alert,
-    Button,
     Modal,
-    StyleSheet,
-    TouchableHighlight
 } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 
@@ -60,7 +56,7 @@ const HoatDong = ({ navigation }) => {
                 <CalendarPicker
                     startFromMonday='true'
                     todayBackgroundColor='#FFA400'
-                    allowRangeSelection={true}
+                    // allowRangeSelection={true}
                     nextTitle=">"
                     previousTitle="<"
 

@@ -3,11 +3,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HoatDong from '../HoatDong/HoatDong.js'
 import TaoCuocGoi from '../HoatDong/MoRong/TaoCuocGoi'
 // import TaoPhieuTiepKhach from '../HoatDong/MoRong/TaoPhieuTiepKhach'
-import TaoPhieuTiepKhach from '../KhachHang/MoRong/KhachHangTiemNang'
+import TaoPhieuTiepKhach from '../BanHang/MoRong/DeXuatBanSi'
 
 import { ImageBackground, Image } from 'react-native';
-import { max } from 'moment';
-import { TouchableOpacity, Text, Button } from 'react-native-gesture-handler';
+
+
 
 const Stack = createStackNavigator();
 function LogoTitle() {

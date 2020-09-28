@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import BanHang from '../BanHang/BanHang'
 import TaoPhieuBanHang from '../BanHang/MoRong/TaoPhieuBanHang.js'
+import DeXuatBanSi from '../BanHang/MoRong/DeXuatBanSi'
 import { ImageBackground, Image } from 'react-native';
 import { max } from 'moment';
 import { TouchableOpacity, Text, Button } from 'react-native-gesture-handler';
@@ -40,6 +41,15 @@ const BanHangNavigation = () => {
 
             <Stack.Screen
                 name="TaoPhieuBanHang" component={TaoPhieuBanHang}
+                options=
+                {{
+                    headerTintColor: '#fff',
+                    headerBackground: props => <LogoTitle {...props} />,
+                    headerTitle: 'Đề xuất bán si'
+                }}
+            />
+            <Stack.Screen
+                name="DeXuatBanSi" component={DeXuatBanSi}
                 options=
                 {{
                     headerTintColor: '#fff',

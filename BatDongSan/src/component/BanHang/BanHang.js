@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import ModalComponent from '../../common/ModalComponent'
+import MatBang from './MatBang'
+import Nen from './Nen'
+import PhatHanh from './PhatHanh'
 import {
     View,
     Text,
@@ -8,9 +11,13 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
+export const UserContext = React.createContext()
+
 const BanHang = ({ navigation }) => {
     const [Model, setModel] = useState("Testing-DB-DCho-2209")
     const [modalVisible, setModalVisible] = useState(false);
+    const [activity, setActivity] = useState(1);
+
     navigation.setOptions({
         headerRight: () => (
             <View
@@ -22,6 +29,7 @@ const BanHang = ({ navigation }) => {
                     onPress=
                     {
                         () => {
+                            setActivity(1)
                         }
                     }
                     style={style.Touch}
@@ -35,6 +43,7 @@ const BanHang = ({ navigation }) => {
                     onPress=
                     {
                         () => {
+                            setActivity(2)
                         }
                     }
                     style={style.Touch}
@@ -49,6 +58,7 @@ const BanHang = ({ navigation }) => {
                     onPress=
                     {
                         () => {
+                            setActivity(3)
                         }
                     }
                     style={style.Touch}
@@ -106,199 +116,15 @@ const BanHang = ({ navigation }) => {
             )
     });
     return (
-        <View
-            style=
-            {{
-                flex: 1,
-            }}
-        >
-            <View
-                style=
-                {{
-                    flexDirection: 'row',
-                    borderBottomWidth: 0.5,
-
-                }}
-            >
-                <TouchableOpacity
-                    style=
-                    {{
-                        margin: 10
-                    }}
-                >
-                    <FontAwesome
-                        name='filter' size={30} color='#FFA605'
-                    />
-                </TouchableOpacity>
-                <View
-                    style=
-                    {{
-                        backgroundColor: '#C5C3C5',
-                        width: 230,
-                        height: 50,
-                        flexDirection: 'row'
-                    }}
-                >
-                    <FontAwesome
-                        name="search" size={20} color="#A09EA0"
-                        style=
-                        {{
-                            margin: 15
-                        }}
-                    />
-
-                    <TextInput
-                        style=
-                        {{
-                            width: 170,
-                            height: 50,
-                            fontSize: 17
-                        }}
-                        placeholder="Tìm kiếm"
-                    >
-
-                    </TextInput>
-                </View>
-                <TouchableOpacity
-                    style=
-                    {{
-                        width: 25,
-                        height: 25,
-                        flexDirection: 'row',
-                        marginHorizontal: 2,
-                        marginVertical: 10
-                    }}
-                >
-                    <View>
-                        <Text
-                            style=
-                            {{
-                                backgroundColor: "#FF1900",
-                                width: 10,
-                                height: 10,
-                                margin: 2
-                            }}
-                        ></Text>
-                        <Text
-                            style=
-                            {{
-                                backgroundColor: "#FFA605",
-                                width: 10,
-                                height: 10,
-                                margin: 2
-                            }}
-                        ></Text>
-                    </View>
-                    <View>
-                        <Text
-                            style=
-                            {{
-                                backgroundColor: "#FFA605",
-                                width: 10,
-                                height: 10,
-                                margin: 2
-                            }}
-                        ></Text>
-                        <Text
-                            style=
-                            {{
-                                backgroundColor: "#FF1900",
-                                width: 10,
-                                height: 10,
-                                margin: 2
-                            }}
-                        ></Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style=
-                    {{
-                        width: 25,
-                        height: 25,
-                        backgroundColor: "#006C00",
-                        marginHorizontal: 2,
-                        marginVertical: 12
-                    }}
-                >
-
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style=
-                    {{
-                        width: 25,
-                        height: 25,
-                        backgroundColor: "#000FFF",
-                        marginHorizontal: 2,
-                        marginVertical: 12
-                    }}
-                >
-
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style=
-                    {{
-                        width: 25,
-                        height: 25,
-                        backgroundColor: "#FFA400",
-                        marginHorizontal: 2,
-                        marginVertical: 12
-                    }}
-                >
-
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style=
-                    {{
-                        width: 25,
-                        height: 25,
-                        backgroundColor: "#FF1900",
-                        marginHorizontal: 2,
-                        marginVertical: 12
-                    }}
-                >
-
-                </TouchableOpacity>
-            </View>
-            <TouchableOpacity
-                style=
-                {{
-                    backgroundColor: '#FFA605',
-                    padding: 13,
-                    position: 'absolute',
-                    width: 60,
-                    height: 60,
-                    borderRadius: 40,
-                    right: 10,
-                    bottom: 20
-                }}
-                onPress={
-                    () => {
-                        navigation.navigate("TaoPhieuBanHang")
-                    }}
-            >
-                <FontAwesome
-                    name='plus' size={40} color="white"
-                />
-            </TouchableOpacity>
-            <TouchableOpacity
-                style=
-                {{
-                    backgroundColor: '#FFA605',
-                    padding: 10,
-                    position: 'absolute',
-                    width: 60,
-                    height: 60,
-                    borderRadius: 40,
-                    left: 10,
-                    bottom: 20
-                }}
-            >
-                <FontAwesome
-                    name='shopping-cart' size={40} color="white"
-                />
-            </TouchableOpacity>
-
-        </View>
+        <UserContext.Provider value={{ activity: activity, setActivity: setActivity }}>
+            {
+                activity == 1 ? (<Nen navigation={navigation} />) : (
+                    activity == 2 ? (<MatBang navigation={navigation} />) : (
+                        <PhatHanh navigation={navigation} />
+                    )
+                )
+            }
+        </UserContext.Provider>
     )
 }
 const style = StyleSheet.create({
