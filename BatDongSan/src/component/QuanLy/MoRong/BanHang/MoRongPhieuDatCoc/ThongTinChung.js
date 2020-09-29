@@ -3,11 +3,13 @@ import ButtonComponent from '../../../../../common/ButtonComponent'
 import InputTextComponent from '../../../../../common/InputTextComponent'
 import MultiLineTextInputComponent from '../../../../../common/MultiLineTextInputComponent'
 import ButtonRefesh from '../../../../../common/ButtonRefesh'
+import FontAwesome from "react-native-vector-icons/FontAwesome5"
 
 
 import {
     View,
-    ScrollView
+    ScrollView,
+    Text
 } from 'react-native';
 const ThongTinChung = ({ navigation }) => {
 
@@ -30,6 +32,38 @@ const ThongTinChung = ({ navigation }) => {
                 <ButtonComponent textName="Tình trạng duyệt" />
                 <ButtonComponent textName="Tình trạng gia hạn" />
                 <ButtonRefesh textName="Khách hàng đồng sở hữu" />
+                <View
+                    style=
+                    {{
+                        backgroundColor: 'orange',
+                        height: 50,
+                        width: '90%',
+                        alignContent: 'center',
+                        justifyContent: 'center',
+                        marginHorizontal: 20,
+                        paddingHorizontal: 10,
+                        marginBottom: 20,
+                        borderRadius: 5
+                    }}
+                >
+                    <Text
+                        style=
+                        {{
+                            fontSize: 20,
+                            color: 'white'
+                        }}
+                    >
+                        Hình ảnh khách hàng
+                    </Text>
+                    <FontAwesome
+                        name="plus" size={20} color="white"
+                        style=
+                        {{
+                            position: 'absolute',
+                            right: '5%'
+                        }}
+                    />
+                </View>
             </ScrollView>
         </View>
     )

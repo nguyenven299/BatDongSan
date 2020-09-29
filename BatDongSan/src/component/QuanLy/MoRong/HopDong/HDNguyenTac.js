@@ -59,15 +59,4 @@ const HDNguyenTac = ({ navigation }) => {
         </View>
     )
 }
-const style = StyleSheet.create({
-    iconButtonStyle:
-    {
-        padding: 5,
-        margin: 5
-    },
-    iconStyle:
-    {
-        marginRight: 5
-    }
-})
 export default HDNguyenTac;

@@ -3,16 +3,11 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 import {
     View,
     Text,
-    ImageBackground,
-    Image,
-    TextInput,
     TouchableOpacity,
-    KeyboardAvoidingView,
     StyleSheet, Modal,
-    ScrollView, Alert
 } from 'react-native';
 const ModalManageComponent = ({ setModalVisible1, visible, setModel, Mode }) => {
-    var Customer = null;
+    var Customer = [];
     switch (Mode) {
         case "Đề xuất khởi tạo":
             Customer = [

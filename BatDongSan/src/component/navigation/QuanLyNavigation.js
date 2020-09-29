@@ -8,9 +8,13 @@ import DeXuatBanSi from '../QuanLy/MoRong/BanHang/DeXuatBanSi'
 import SPDangBooking from '../QuanLy/MoRong/BanHang/SPDangBooking'
 import PhieuDatCho from '../QuanLy/MoRong/BanHang/PhieuDatCho'
 import PhieuDatCoc from '../QuanLy/MoRong/BanHang/PhieuDatCoc'
+// import PhieuDatCoc from '../QuanLy/MoRong/BanHang/MoRongPhieuDatCoc/PhieuDatCoc'
+
 import YeuCauHuyDatCoc from '../QuanLy/MoRong/BanHang/YeuCauHuyDatCoc'
 
 import HoatDongGopVonNoiBo from '../QuanLy/MoRong/GopVon/HoatDongGopVonNoiBo'
+// import HoatDongGopVonNoiBo from '../QuanLy/MoRong/HopDong/MoRongNguyenTacHopDong/HopDongNguyenTac'
+
 import DeXuatGopVonNoiBo from '../QuanLy/MoRong/GopVon/DeXuatGopVonNoiBo'
 // import CreateRevenue from '../QuanLy/MoRong/GopVon/CreateRevenue'
 
@@ -20,6 +24,7 @@ import PhieuDatCoc72h from '../QuanLy/MoRong/MoiGioi/PhieuDatCoc72h'
 import PhieuCoc3Ben from '../QuanLy/MoRong/MoiGioi/PhieuCoc3Ben'
 
 import HDNguyenTac from '../QuanLy/MoRong/HopDong/HDNguyenTac'
+// import HDNguyenTac from '../QuanLy/MoRong/HopDong/MoRongNguyenTacHopDong/HopDongNguyenTac'
 import HDVay from '../QuanLy/MoRong/HopDong/HDVay'
 import HDMuaBan from '../QuanLy/MoRong/HopDong/HDMuaBan'
 import HDDichVu from '../QuanLy/MoRong/HopDong/HDDichVu'
