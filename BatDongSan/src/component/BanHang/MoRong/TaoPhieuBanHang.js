@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/MaterialIcons"
-import TextInputCoponent from '../../../common/InputTextComponent'
-import ButtonComponent from '../../../common/ButtonComponent'
-import MultiLineInputTextComponent from '../../../common/MultiLineTextInputComponent'
+import TextInputComponent from '../../../common/HoatDong/TextInputComponent'
+import OptionSetComponent from '../../../common/HoatDong/OptionSetComponent'
+import MultiInputCuocGoiComponent from '../../../common/HoatDong/MultiInputCuocGoiComponent'
 import ButtonRefesh from '../../../common/ButtonRefesh'
 import {
     View,
@@ -11,11 +11,24 @@ import {
     Image,
     TextInput,
     TouchableOpacity,
-    KeyboardAvoidingView,
-    StyleSheet, Modal,
+    StyleSheet,
     ScrollView
 } from 'react-native';
 const TaoPhieuBanHang = ({ navigation }) => {
+    const [tieuDe, setTieuDe] = useState("")
+    const [duAn, setDuAn] = useState("")
+    const [dotPhatHanh, setDotPhatHanh] = useState("")
+    const [khachHang, setKhachHang] = useState("")
+    const [hinhThucThanhToan, setHinhThucThanhToan] = useState("")
+    const [taiKhoanNganHang, setTaiKhoanNganHang] = useState("")
+    const [chuTaiKhoan, setChuTaiKhoan] = useState("")
+    const [nganHang, setNganHang] = useState("")
+    const [chiNhanhNganHang, setChiNhanhNganHang] = useState("")
+    const [dienGiai, setDienGiai] = useState("")
+    const [trangThai, setTrangThai] = useState("")
+    const [khachHangDongSoHuu, setKhachHangDongSoHuu] = useState("")
+    const [sanPhamBanSi, setSanPhamBanSi] = useState("")
+
     navigation.setOptions({
         headerRight: () => (
             <TouchableOpacity
@@ -42,17 +55,55 @@ const TaoPhieuBanHang = ({ navigation }) => {
     return (
         <View>
             <ScrollView>
-                <TextInputCoponent textName="Tiêu đề" />
-                <ButtonComponent textName="Dự án" />
-                <ButtonComponent textName="Đợt phát hành" />
-                <ButtonComponent textName="Khách hàng" />
-                <ButtonComponent textName="Hình thức thanh toán" />
-                <ButtonComponent textName="Tài khoản ngân hàng" />
-                <TextInputCoponent textName="Chủ tài khoản" />
-                <ButtonComponent textName="Ngân hàng" />
-                <ButtonComponent textName="Chi nhánh ngân hàng" />
-                <MultiLineInputTextComponent textName="Diễn giải" />
-                <ButtonComponent textName="Trạng thái" />
+                <TextInputComponent
+                    textName="Tiêu đề"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setTieuDe}
+                    value={tieuDe} />
+                <OptionSetComponent
+                    textName="Dự án"
+                    disable={false}
+                    visible={true}
+                    required={true}
+                    setValue={setDuAn}
+                    value={duAn}
+                    caret={true}
+                />
+                <OptionSetComponent
+                    textName="Đợt phát hành"
+                    disable={false}
+                    visible={true}
+                    required={true}
+                    setValue={setDotPhatHanh}
+                    value={dotPhatHanh}
+                    caret={true}
+                />
+                <OptionSetComponent
+                    textName="Khách hàng"
+                    disable={true}
+                    visible={true}
+                    required={true}
+                    setValue={setKhachHang}
+                    value={khachHang}
+                    caret={true}
+                />
+                <OptionSetComponent
+                    textName="Hình thức thanh toán"
+                    disable={false}
+                    visible={true}
+                    required={true}
+                    setValue={setDuAn}
+                    value={duAn}
+                    caret={true}
+                />
+                <OptionSetComponent textName="Tài khoản ngân hàng" />
+                <TextInputComponent textName="Chủ tài khoản" />
+                <OptionSetComponent textName="Ngân hàng" />
+                <OptionSetComponent textName="Chi nhánh ngân hàng" />
+                <MultiInputCuocGoiComponent textName="Diễn giải" />
+                <OptionSetComponent textName="Trạng thái" />
                 <ButtonRefesh textName="Khách hàng đồng sở hữu" />
                 <ButtonRefesh textName="Sản phẩm bán sỉ" />
 

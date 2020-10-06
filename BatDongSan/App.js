@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 const Stack = createStackNavigator();
-import TabNavigation from './src/component/Navigation/TabNavigation.js'
-import DangNhapNavigation from './src/component/Navigation/DangNhapNavigation.js';
+import TabNavigation from './src/component/navigation/TabNavigation.js'
+import DangNhapNavigation from './src/component/navigation/DangNhapNavigation.js';
 // import DangNhapNavigation from './src/component/KhachHang/MoRong/KhachHangTiemNang';
 
 // import LoginNavigation from './src/component/Manager/More/Ultilities/ChangePassword';

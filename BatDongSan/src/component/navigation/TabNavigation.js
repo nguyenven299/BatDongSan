@@ -4,10 +4,10 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 
 // import User from '../navigation/MoalNavigation.js'
 import MoiGioiNavigation from './MoiGioiNavigation'
-import HoatDongNavigation from '../Navigation/HoatDongNavigation.js'
-import KhachHangNavigation from '../Navigation/KhachHangNavigation.js'
-import BanHangNavigation from '../Navigation/BanHangNavigation.js'
-import QuanLyNavigation from '../Navigation/QuanLyNavigation.js'
+import HoatDongNavigation from '../navigation/HoatDongNavigation.js'
+import KhachHangNavigation from '../navigation/KhachHangNavigation.js'
+import BanHangNavigation from '../navigation/BanHangNavigation.js'
+import QuanLyNavigation from '../navigation/QuanLyNavigation.js'
 import { ImageBackground, View, TouchableOpacity, Text, Alert } from 'react-native';
 
 // const Tab = createMaterialBottomTabNavigator();
