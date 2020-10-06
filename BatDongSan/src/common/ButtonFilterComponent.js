@@ -48,7 +48,4 @@ const ButtonFilterComponent = ({ textName, setCount, count }) => {
         </View>
     )
 }
-const style = StyleSheet.create({
-
-})
 export default ButtonFilterComponent

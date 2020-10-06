@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome5"
-import ButtonComponent from '../../../../common/ButtonComponent'
-import InputTextComponent from '../../../../common/InputTextComponent'
-import MultiLineTextInputComponent from '../../../../common/MultiLineTextInputComponent'
-
+import OptionSetComponent from '../../../../common/HoatDong/OptionSetComponent'
+import TextInputComponent from '../../../../common/HoatDong/TextInputComponent'
+import MultiInputCuocGoiComponent from '../../../../common/HoatDong/MultiInputCuocGoiComponent'
+import DateComponemt from '../../../../common/HoatDong/DateComponemt'
 import {
     View,
     Text,
@@ -14,7 +14,46 @@ import {
 
 const SuaKhachHangTiemNang = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
-
+    const [loaiKhachHang, setLoaiKhachHang] = useState("");
+    const [phanLoaiKhachHang, setPhanLoaiKhachHang] = useState("");
+    const [khachHangNuocNgoai, setKhachHangNuocNgoai] = useState("");
+    const [hoVaTen, setHoVaTen] = useState("");
+    const [ten, setTen] = useState("");
+    const [gioiTinh, setGioiTinh] = useState("");
+    const [soDienThoai, setSoDienThoai] = useState("");
+    const [bietDanh, setBietDanh] = useState("");
+    const [ngaySinh, setNgaySinh] = useState("");
+    const [danToc, setDanToc] = useState("");
+    const [sdt2, setSDT2] = useState("");
+    const [sd3, setSDT3] = useState("");
+    const [email, setEmail] = useState("");
+    const [mucThuNhap, setMucThuNhap] = useState("");
+    const [soCMND, setSoCMND] = useState("");
+    const [noiCapCMND, setNoiCapCMND] = useState("");
+    const [ngayCapCMND, setngayCapCMND] = useState("");
+    const [soCCCD, setSoCCCD] = useState("");
+    const [noiCapCCCD, setNoiCapCCCD] = useState("");
+    const [ngayCapCCCD, setNgayCapCCCD] = useState("");
+    const [soPassport, setSoPassport] = useState("");
+    const [noiCapPassport, setNoiCapPassport] = useState("");
+    const [ngayCapPassport, setNgayCapPassport] = useState("");
+    const [quocGiaLienHe, setQuocGiaLienHe] = useState("");
+    const [tinhThanhPhoThuongTru, setTinhThanhPhoThuongTru] = useState("");
+    const [quanHuyenThuongTru, setQuanHuyenThuongTru] = useState("");
+    const [phuongxaThuongTru, setPhuongxaThuongTru] = useState("");
+    const [soNhaThuongTru, setSoNhaThuongTru] = useState("");
+    const [diaChiThuongTru, setDiaChiThuongTru] = useState("");
+    const [quocGiaThuongTru, setQuocGiaThuongTru] = useState("");
+    const [tinhThanhLienHe, setTinhThanhLienHe] = useState("");
+    const [quanHuyenLienHe, setQuanHuyenLienHe] = useState("");
+    const [phuongXaLienHe, setPhuongXaLienHe] = useState("");
+    const [soNhaLienHe, setSoNhaLienHe] = useState("");
+    const [diaChiLienHe, setDiaChiLienHe] = useState("");
+    const [ghiChu, setGhiChu] = useState("");
+    var MucThuNhap =
+        [
+            "< 5 triệu", "Từ 5 triệu < 10 triệu", "Từ 10 triệu < 20 triệu", "Từ 20 triệu < 30 triệu", "Từ 30 triệu < 50 triệu", ">50 triệu"
+        ]
     navigation.setOptions({
         headerRight: () => (
             <View
@@ -86,42 +125,291 @@ const SuaKhachHangTiemNang = ({ navigation }) => {
         >
             <ScrollView>
 
-                <ButtonComponent textName="Loại khách hàng" />
-                <ButtonComponent textName="Phân loại khách hàng" />
-                <ButtonComponent textName="Khách hàng nước ngoài" />
-                <InputTextComponent textName="Họ và tên đệm (VD:Nguyễn Văn)" />
-                <InputTextComponent textName="Tên (VD: Nam)" />
-                <ButtonComponent textName="Giới tính" />
-                <InputTextComponent textName="Số điện thoại" />
-                <InputTextComponent textName="Biệt danh" />
-                <ButtonComponent textName="Ngày sinh" />
-                <ButtonComponent textName="Dân tộc" />
-                <InputTextComponent textName="Số điện thoại thứ 2" />
-                <InputTextComponent textName="Số điện thoại thứ 3" />
-                <InputTextComponent textName="Email" />
-                <ButtonComponent textName="Mức thu nhập" />
-                <InputTextComponent textName="Số CMND" />
-                <InputTextComponent textName="Nơi cấp CMND" />
-                <ButtonComponent textName="Ngày cấp CMND" />
-                <InputTextComponent textName="Số CCCD" />
-                <ButtonComponent textName="Nơi cấp CCCD" />
-                <ButtonComponent textName="Ngày cấp CCCD" />
-                <InputTextComponent textName="Số Passport" />
-                <ButtonComponent textName="Nơi cấp Passport" />
-                <ButtonComponent textName="Ngày cấp Passport" />
-                <ButtonComponent textName="Quốc gia liên hệ" />
-                <ButtonComponent textName="Tỉnh/Thành phố thường trú" />
-                <ButtonComponent textName="Quận/ Huyện thường trú" />
-                <ButtonComponent textName="Phường/Xã thường trú" />
-                <InputTextComponent textName="Số nhà, tên đường thường trú" />
-                <MultiLineTextInputComponent textName="Địa chỉ thường trú" />
-                <ButtonComponent textName="Quốc gia liên hệ" />
-                <ButtonComponent textName="Tỉnh/Thành phố liên hệ" />
-                <ButtonComponent textName="Quận/ Huyện liên hệ" />
-                <ButtonComponent textName="Phường/Xã liên hệ" />
-                <InputTextComponent textName="Số nhà, tên đường liên hệ" />
-                <MultiLineTextInputComponent textName="Địa chỉ liên hệ" />
-                <MultiLineTextInputComponent textName="Ghi chú" />
+                <OptionSetComponent textName="Loại khách hàng"
+                    disable={true}
+                    visible={true}
+                    required={true}
+                    setValue={setLoaiKhachHang}
+                    value={khachHang}
+                    caret={true}
+                />
+                <OptionSetComponent textName="Phân loại khách hàng"
+                    disable={true}
+                    visible={true}
+                    required={true}
+                    setValue={setPhanLoaiKhachHang}
+                    value={phanLoaiKhachHang}
+                    caret={true}
+                />
+                <OptionSetComponent textName="Khách hàng nước ngoài"
+                    disable={true}
+                    visible={true}
+                    required={true}
+                    setValue={setKhachHangNuocNgoai}
+                    value={khachHangNuocNgoai}
+                    caret={false}
+                />
+                <TextInputComponent textName="Họ và tên đệm (VD:Nguyễn Văn)"
+                    disable={true}
+                    visible={true}
+                    required={true}
+                    setValue={setHoVaTen}
+                    value={hoVaTen}
+                    caret={false}
+                />
+                <TextInputComponent textName="Tên (VD: Nam)"
+                    disable={true}
+                    visible={true}
+                    required={true}
+                    setValue={setTen}
+                    value={ten}
+                    caret={false}
+                />
+                <OptionSetComponent textName="Giới tính"
+                    disable={true}
+                    visible={true}
+                    required={true}
+                    setValue={setGioiTinh}
+                    value={gioiTinh}
+                    caret={true}
+                />
+                <TextInputComponent textName="Số điện thoại"
+                    disable={true}
+                    visible={true}
+                    required={true}
+                    setValue={setSoDienThoai}
+                    value={soDienThoai}
+                />
+                <TextInputComponent textName="Biệt danh"
+                    disable={true}
+                    visible={true}
+                    required={true}
+                    setValue={setBietDanh}
+                    value={bietDanh}
+                />
+                <DateComponemt textName="Ngày sinh"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setNgaySinh}
+                    value={ngaySinh}
+                />
+                <OptionSetComponent textName="Dân tộc"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setDanToc}
+                    value={danToc}
+                    caret={true}
+                />
+                <TextInputComponent textName="Số điện thoại thứ 2"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setSDT2}
+                    value={sdt2}
+                />
+                <TextInputComponent textName="Số điện thoại thứ 3"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setSDT3}
+                    value={sd3}
+                />
+                <TextInputComponent textName="Email"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setEmail}
+                    value={email}
+                />
+                <OptionSetComponent textName="Mức thu nhập"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setMucThuNhap}
+                    value={mucThuNhap}
+                    caret={true}
+                //  dataOption={MucThuNhap}
+                />
+                <TextInputComponent textName="Số CMND"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setSoCMND}
+                    value={soCMND}
+                />
+                <TextInputComponent textName="Nơi cấp CMND"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setNoiCapCMND}
+                    value={noiCapCMND}
+                />
+                <DateComponemt textName="Ngày cấp CMND"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setngayCapCMND}
+                    value={ngayCapCMND}
+                />
+                <TextInputComponent textName="Số CCCD"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setSoCCCD}
+                    value={soCCCD}
+                />
+                <OptionSetComponent textName="Nơi cấp CCCD"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setNoiCapCCCD}
+                    value={noiCapCCCD}
+                    caret={true}
+                //   dataOption={MucThuNhap}
+                />
+                <OptionSetComponent textName="Ngày cấp CCCD"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setNgayCapCCCD}
+                    value={ngayCapCCCD}
+                    caret={true}
+                //   dataOption={MucThuNhap}
+                />
+                <TextInputComponent textName="Số Passport"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setSoPassport}
+                    value={soPassport}
+                />
+                <OptionSetComponent textName="Nơi cấp Passport"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setNoiCapPassport}
+                    value={noiCapPassport}
+                    caret={true}
+                //  dataOption={MucThuNhap}
+                />
+                <OptionSetComponent textName="Ngày cấp Passport"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setNgayCapPassport}
+                    value={ngayCapPassport}
+                    caret={true}
+                //  dataOption={MucThuNhap}
+                />
+                <OptionSetComponent textName="Quốc gia thường trú"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setQuocGiaThuongTru}
+                    value={quocGiaThuongTru}
+                    caret={true}
+                //  dataOption={MucThuNhap}
+                />
+                <OptionSetComponent textName="Tỉnh/Thành phố thường trú"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setTinhThanhPhoThuongTru}
+                    value={tinhThanhPhoThuongTru}
+                    caret={true}
+                //  dataOption={MucThuNhap}
+                />
+                <OptionSetComponent textName="Quận/ Huyện thường trú"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setQuanHuyenThuongTru}
+                    value={quanHuyenThuongTru}
+                    caret={true}
+                //  dataOption={MucThuNhap}
+                />
+                <OptionSetComponent textName="Phường/Xã thường trú"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setPhuongxaThuongTru}
+                    value={phuongxaThuongTru}
+                    caret={true}
+                //  dataOption={phuongxaThuongTru}
+                />
+                <TextInputComponent textName="Số nhà, tên đường thường trú"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setSoNhaThuongTru}
+                    value={soNhaThuongTru}
+                />
+                <MultiInputCuocGoiComponent textName="Địa chỉ thường trú"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setDiaChiThuongTru}
+                    value={diaChiThuongTru}
+                />
+                <OptionSetComponent textName="Quốc gia liên hệ"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setQuocGiaLienHe}
+                    value={quocGiaLienHe}
+                    caret={true}
+                    dataOption={MucThuNhap}
+                />
+                <OptionSetComponent textName="Tỉnh/Thành phố liên hệ"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setTinhThanhLienHe}
+                    value={tinhThanhLienHe}
+                    caret={true}
+                // dataOption={MucThuNhap}
+                />
+                <OptionSetComponent textName="Quận/ Huyện liên hệ"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setQuanHuyenLienHe}
+                    value={quanHuyenLienHe}
+                    caret={true}
+                // dataOption={MucThuNhap}
+                />
+                <OptionSetComponent textName="Phường/Xã liên hệ"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setPhuongXaLienHe}
+                    value={phuongXaLienHe}
+                    caret={true}
+                // dataOption={MucThuNhap}
+                />
+                <TextInputComponent textName="Số nhà, tên đường liên hệ"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setSoNhaLienHe}
+                    value={soNhaLienHe}
+                />
+                <MultiInputCuocGoiComponent textName="Địa chỉ liên hệ"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setDiaChiLienHe}
+                    value={diaChiLienHe}
+                />
+                <MultiInputCuocGoiComponent textName="Ghi chú"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setGhiChu}
+                    value={ghiChu}
+                />
                 <View
                     style=
                     {{

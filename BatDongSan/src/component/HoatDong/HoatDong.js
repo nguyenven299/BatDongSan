@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import HanhDong from './Navigation/HanhDong.js'
 import SinhNhat from './Navigation/SinhNhat'
+import StyleCommon from '../../theme/StyleCommon'
 import {
     View,
     Text,
@@ -185,12 +186,7 @@ const HoatDong = ({ navigation }) => {
                     }}
 
                 >
-                    <View style={{
-                        flex: 1,
-                        justifyContent: "center",
-                        alignItems: "center",
-                        backgroundColor: 'rgba(0,0,0,0.5)'
-                    }}>
+                    <View style={StyleCommon.backgoundModal}>
                         <View style=
                             {{
                                 margin: 20,

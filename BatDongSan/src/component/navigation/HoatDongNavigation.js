@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import HoatDong from '../HoatDong/HoatDong.js'
 import TaoCuocGoi from '../HoatDong/MoRong/TaoCuocGoi'
-// import TaoPhieuTiepKhach from '../HoatDong/MoRong/TaoPhieuTiepKhach'
-import TaoPhieuTiepKhach from '../BanHang/MoRong/DeXuatBanSi'
+import TaoPhieuTiepKhach from '../HoatDong/MoRong/TaoPhieuTiepKhach'
+// import TaoPhieuTiepKhach from '../BanHang/MoRong/DeXuatBanSi'
 
 import { ImageBackground, Image } from 'react-native';
 

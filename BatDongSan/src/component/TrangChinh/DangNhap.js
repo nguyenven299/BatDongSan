@@ -178,6 +178,7 @@ const DangNhap = ({ navigation }) => {
                                     {{
                                         marginTop: "5%"
                                     }}
+
                                 >
                                     <Text
                                         style=
