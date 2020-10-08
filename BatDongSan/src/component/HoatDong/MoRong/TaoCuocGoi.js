@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 
 import OptionSetComponent from '../../../common/HoatDong/OptionSetComponent'
+import InputTextCurrentcy from '../../../common/HoatDong/InputTextCurrentcy'
+import OptionSetSearchComponent from '../../../common/HoatDong/OptionSetSearchComponent'
+import MultiOptionSetComponent from '../../../common/HoatDong/MultiOptionSetComponent'
 import TextInputComponent from '../../../common/HoatDong/TextInputComponent'
 import MultiTextInputComponent from '../../../common/HoatDong/MultiInputCuocGoiComponent'
 import DateTimeComponent from '../../../common/HoatDong/DateTimeComponent'
+import BoolenComponent from '../../../common/HoatDong/BoolenComponent'
 import {
     View,
     TouchableOpacity,
@@ -16,7 +20,7 @@ const TaoCuocGoi = ({ navigation }) => {
     const [tieuDe, setTieuDe] = useState("")
     const [nguoiGoi, setNguoiGoi] = useState("Lee Thi Lai")
     const [nguoiNhan, setNguoiNhan] = useState("")
-    const [loaiCuocGoi, setLoaiCuocGoi] = useState(true)
+    const [loaiCuocGoi, setLoaiCuocGoi] = useState(false)
     const [dienGiai, setDienGiai] = useState("")
     const [thoiGianCuocGoi, setThoiGianCuocGoi] = useState("")
     const [ngayDuKien, setNgayDuKien] = useState("")
@@ -25,14 +29,14 @@ const TaoCuocGoi = ({ navigation }) => {
     const [trangThai, setTrangThai] = useState("")
     const [danhGiaMucDoTiemNang, setDanhGiaMucDoTiemNang] = useState("")
     const [mucThuNhap, setMucThuNhap] = useState("")
-    const [loaiHinhSanPham, setLoaiHinhSanPham] = useState("")
+    const [loaiHinhSanPham, setLoaiHinhSanPham] = useState([])
     const [mucDichMua, setMucDichMua] = useState("")
     const [khoangGia, setKhoangGia] = useState("")
     const [huong, setHuong] = useState("")
     const [tongDienTich, setTongDienTich] = useState("")
     var ThoiGianCuocGoi =
         [
-            "1 phút", "15 phút", "30 phút", "45 phút", "1 giờ", "1.5 giờ", "2 giờ", "2.5 giờ", "3 giờ", "3.5 giờ", "4 giờ", "4.5 giờ", " 5 giờ", "5.5 giờ", "6 giờ", "6.5 giờ", "7 giờ", "7.5 giờ", "8 giờ"
+            "1 phút", "15 phút", "30 phút", "45 phút", "1 giờ", "1.5 giờ", "2 giờ", "2.5 giờ", "3 giờ", "3.5 giờ", "4 giờ", "4.5 giờ", "5 giờ", "5.5 giờ", "6 giờ", "6.5 giờ", "7 giờ", "7.5 giờ", "8 giờ"
         ]
     var DanhGiaMucDoTiemNang =
         [
@@ -97,7 +101,7 @@ const TaoCuocGoi = ({ navigation }) => {
                     value={tieuDe}
                 />
                 {
-                    loaiCuocGoi ?
+                    !loaiCuocGoi ?
                         (
                             <View>
                                 <TextInputComponent textName="Người gọi"
@@ -137,23 +141,22 @@ const TaoCuocGoi = ({ navigation }) => {
                         )
                 }
 
-                <View>
-                    <Text style={StyleCommon.textTitleInputStyle}>Loại cuộc gọi</Text>
-                    <TouchableOpacity
-                        style={StyleCommon.buttonStyle}
-                        onPress={() => { setLoaiCuocGoi(!loaiCuocGoi) }}
-                    >
-                        <Text
-                        >{loaiCuocGoi ? "Outcoming" : "Incoming"}</Text>
-                    </TouchableOpacity>
-                </View>
-
+                <BoolenComponent
+                    textName="Loại cuộc gọi"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setLoaiCuocGoi}
+                    value={loaiCuocGoi}
+                    check={loaiCuocGoi ? ("Outcoming") : ("Incoming")}
+                />
                 <MultiTextInputComponent textName="Diễn giải"
                     disable={true}
                     visible={true}
                     required={false}
                     setValue={setDienGiai}
                     value={dienGiai}
+
                 />
                 <OptionSetComponent textName="Thời gian cuộc gọi"
                     disable={true}
@@ -200,6 +203,7 @@ const TaoCuocGoi = ({ navigation }) => {
                     value={danhGiaMucDoTiemNang}
                     caret={true}
                     dataOption={DanhGiaMucDoTiemNang}
+
                 />
                 <OptionSetComponent textName="Mức thu nhập"
                     disable={true}
@@ -210,7 +214,7 @@ const TaoCuocGoi = ({ navigation }) => {
                     caret={true}
                     dataOption={MucThuNhap}
                 />
-                <OptionSetComponent textName="Loại hình sản phẩm"
+                <MultiOptionSetComponent textName="Loại hình sản phẩm"
                     disable={true}
                     visible={true}
                     required={false}
@@ -219,7 +223,7 @@ const TaoCuocGoi = ({ navigation }) => {
                     caret={true}
                     dataOption={LoaiHinhSanPham}
                 />
-                <OptionSetComponent textName="Mục đích mua"
+                <MultiOptionSetComponent textName="Mục đích mua"
                     disable={true}
                     visible={true}
                     required={false}
@@ -228,7 +232,7 @@ const TaoCuocGoi = ({ navigation }) => {
                     caret={true}
                     dataOption={MucDichMua}
                 />
-                <OptionSetComponent textName="Khoảng giá"
+                <MultiOptionSetComponent textName="Khoảng giá"
                     disable={true}
                     visible={true}
                     required={false}
@@ -237,7 +241,7 @@ const TaoCuocGoi = ({ navigation }) => {
                     caret={true}
                     dataOption={KhoangGia}
                 />
-                <OptionSetComponent textName="Hướng"
+                <MultiOptionSetComponent textName="Hướng"
                     disable={true}
                     visible={true}
                     required={false}
@@ -246,7 +250,7 @@ const TaoCuocGoi = ({ navigation }) => {
                     caret={true}
                     dataOption={Huong}
                 />
-                <OptionSetComponent textName="Tổng diện tích"
+                <MultiOptionSetComponent textName="Tổng diện tích"
                     disable={true}
                     visible={true}
                     required={false}

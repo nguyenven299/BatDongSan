@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import {
     View,
@@ -18,7 +18,9 @@ const DangNhap = ({ navigation }) => {
     const [Password, setPassword] = useState()
     const [hidePassword, setHidePassword] = useState(true)
     const userContext = useContext(UserContext)
+
     return (
+
         <KeyboardAvoidingView
             behavior={"height"}
         >
@@ -98,10 +100,13 @@ const DangNhap = ({ navigation }) => {
                                             paddingLeft: 20,
                                             paddingRight: 30,
                                         }}
+
                                         onChangeText={text => setAccount(text)}
+                                        value={Account}
 
                                     >
                                     </TextInput>
+
                                     <FontAwesome name="user" color={"#D88B00"} size={20}
                                         style=
                                         {{
@@ -178,7 +183,10 @@ const DangNhap = ({ navigation }) => {
                                     {{
                                         marginTop: "5%"
                                     }}
-
+                                    onPress={() => {
+                                        console.log(Account)
+                                        console.log(numberFormat(Account))
+                                    }}
                                 >
                                     <Text
                                         style=

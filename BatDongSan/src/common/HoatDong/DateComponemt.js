@@ -9,7 +9,7 @@ import {
     Text,
     TouchableOpacity,
 } from 'react-native';
-function DateComponemt({ textName, visible, disable, required, value, setValue, dataOption, caret }) {
+function DateComponemt({ textName, visible, disable, required, value, setValue }) {
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const formatDate = (date) => {
         var d = new Date(date);
@@ -35,7 +35,24 @@ function DateComponemt({ textName, visible, disable, required, value, setValue, 
         hideDatePicker();
         setValue(formatDate(date))
     };
+    const cleanValue = () => {
+        return (
+            <TouchableOpacity
+                style=
+                {{
+                    position: 'absolute',
+                    right: 10,
+                    bottom: 10
+                }}
+                onPress={() => {
+                    setValue("")
+                }}
+            >
+                <FontAwesome name="times" size={20} color="#4A4D53" />
+            </TouchableOpacity>
 
+        )
+    }
     return (
         <View>
             {
@@ -63,6 +80,7 @@ function DateComponemt({ textName, visible, disable, required, value, setValue, 
                                 <Text>
                                     {value}
                                 </Text>
+                                {value != null && value != "" ? (cleanValue()) : null}
                             </TouchableOpacity>
                             { <DateTimePickerModal
                                 isVisible={isDatePickerVisible}

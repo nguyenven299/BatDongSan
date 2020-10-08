@@ -9,6 +9,7 @@ import TextInputComponent from '../../../common/HoatDong/TextInputComponent';
 import OptionSetComponent from './../../../common/HoatDong/OptionSetComponent'
 import DateComponemt from '../../../common/HoatDong/DateComponemt'
 import DateTimeComponent from '../../../common/HoatDong/DateTimeComponent'
+import MultiOptionSetComponent from '../../../common/HoatDong/MultiOptionSetComponent'
 
 const TaoPhieuTiepKhach = ({ navigation }) => {
     const [tieuDe, setTieuDe] = useState()
@@ -180,7 +181,7 @@ const TaoPhieuTiepKhach = ({ navigation }) => {
                     caret={true}
                     dataOption={MucThuNhap}
                 />
-                <OptionSetComponent textName="Loại hình sản phẩm"
+                <MultiOptionSetComponent textName="Loại hình sản phẩm"
                     disable={true}
                     visible={true}
                     required={false}
@@ -189,7 +190,7 @@ const TaoPhieuTiepKhach = ({ navigation }) => {
                     caret={true}
                     dataOption={LoaiHinhSanPham}
                 />
-                <OptionSetComponent textName="Mục đích mua"
+                <MultiOptionSetComponent textName="Mục đích mua"
                     disable={true}
                     visible={true}
                     required={false}
@@ -198,7 +199,7 @@ const TaoPhieuTiepKhach = ({ navigation }) => {
                     caret={true}
                     dataOption={MucDichMua}
                 />
-                <OptionSetComponent textName="Khoảng giá"
+                <MultiOptionSetComponent textName="Khoảng giá"
                     disable={true}
                     visible={true}
                     required={false}
@@ -207,7 +208,7 @@ const TaoPhieuTiepKhach = ({ navigation }) => {
                     caret={true}
                     dataOption={KhoangGia}
                 />
-                <OptionSetComponent textName="Hướng"
+                <MultiOptionSetComponent textName="Hướng"
                     disable={true}
                     visible={true}
                     required={false}
@@ -216,7 +217,7 @@ const TaoPhieuTiepKhach = ({ navigation }) => {
                     caret={true}
                     dataOption={Huong}
                 />
-                <OptionSetComponent textName="Tổng diện tích"
+                <MultiOptionSetComponent textName="Tổng diện tích"
                     disable={true}
                     visible={true}
                     required={false}

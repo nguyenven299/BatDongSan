@@ -148,6 +148,61 @@ const StyleCommon = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 30,
         marginHorizontal: 20
-    }
+    },
+    buttonClose:
+    {
+        backgroundColor: "#F0EEF0",
+        width: "100%",
+        padding: 10,
+        marginTop: 20,
+        elevation: 2,
+
+    },
+    textStyleClose:
+    {
+        color: "black",
+        fontSize: 20,
+        textAlign: "center"
+    },
+    buttonModalStyle:
+    {
+        backgroundColor: "#FBFAFB",
+        width: "85%",
+        borderWidth: 0.2,
+        padding: 10,
+        // marginHorizontal: "10%",
+        marginVertical: 10,
+        borderRadius: 2,
+        flexDirection: 'row',
+        marginHorizontal: 20
+    },
+    buttonModalStyle1:
+    {
+        backgroundColor: "white",
+        width: "100%",
+        padding: 10,
+        // marginHorizontal: "10%",
+        borderRadius: 2,
+        flexDirection: 'row',
+        borderBottomWidth: 3,
+        borderBottomColor: '#DEDEDE'
+    },
+    viewStyleRefesh:
+    {
+        backgroundColor: '#FFA605',
+        width: "90%",
+        marginHorizontal: 20,
+        marginVertical: 20,
+        flexDirection: 'row'
+
+    },
+    textStyleRefesh:
+    {
+        color: 'white',
+        fontSize: 20,
+        padding: 10,
+    },
+
+
 });
 export default StyleCommon;

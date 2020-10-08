@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import HoatDong from '../HoatDong/HoatDong.js'
 import TaoCuocGoi from '../HoatDong/MoRong/TaoCuocGoi'
-import TaoPhieuTiepKhach from '../HoatDong/MoRong/TaoPhieuTiepKhach'
-// import TaoPhieuTiepKhach from '../BanHang/MoRong/DeXuatBanSi'
+// import TaoPhieuTiepKhach from '../HoatDong/MoRong/TaoPhieuTiepKhach'
+import TaoPhieuTiepKhach from '../../component/QuanLy/MoRong/BanHang/MoRongPhieuDatCoc/ThongTinThanhToan'
+// import TaoPhieuTiepKhach from '../KhachHang/MoRong/MoRonKhachHangTiemNang/SuaKhachHangTiemNang'
 
 import { ImageBackground, Image } from 'react-native';
 

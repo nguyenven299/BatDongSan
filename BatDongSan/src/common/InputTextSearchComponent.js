@@ -18,15 +18,13 @@ const InputTextSearchComponent = () => {
                     marginHorizontal: 10,
                     height: 50,
                     flexDirection: 'row',
-                    marginTop: 5
+                    marginTop: 5,
+                    justifyContent: 'center',
+                    alignItems: 'center'
                 }}
             >
                 <FontAwesome
                     name="search" size={20} color="#A09EA0"
-                    style=
-                    {{
-                        margin: 15
-                    }}
                 />
 
                 <TextInput

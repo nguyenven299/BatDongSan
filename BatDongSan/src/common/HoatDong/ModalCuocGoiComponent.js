@@ -17,52 +17,6 @@ const ModalCuocGoiComponent = ({ setModalVisible, visible, setValue, value, data
             />
         )
     }
-    var obj = {}
-    var obj1 = {}
-    var objThoiGianCuocGoi = {}
-    var objDanhGiaMucDoTiemNang = {}
-    var objMucThuNhap = {}
-    var objLoaiHinhSanPham = {}
-    var objMucDichMua = {}
-    var objKhoangGia = {}
-    var objHuong = {}
-    var objTongDienTich = {}
-
-    {/*for (let i = 1; i <= ThoiGianCuocGoi.length; i++) {
-        objThoiGianCuocGoi["id"] = i,
-            objThoiGianCuocGoi['thongTin'] = ThoiGianCuocGoi
-    }
-    for (let i = 1; i <= DanhGiaMucDoTiemNang.length; i++) {
-        objDanhGiaMucDoTiemNang["id"] = i,
-            objDanhGiaMucDoTiemNang['thongTin'] = DanhGiaMucDoTiemNang
-    }
-    for (let i = 1; i <= MucThuNhap.length; i++) {
-        objMucThuNhap["id"] = i,
-            objMucThuNhap['thongTin'] = MucThuNhap
-    }
-    for (let i = 1; i <= LoaiHinhSanPham.length; i++) {
-        objLoaiHinhSanPham["id"] = i,
-            objLoaiHinhSanPham['thongTin'] = LoaiHinhSanPham
-    }
-    for (let i = 1; i <= MucDichMua.length; i++) {
-        objMucDichMua["id"] = i,
-            objMucDichMua['thongTin'] = MucDichMua
-    }
-    for (let i = 1; i <= KhoangGia.length; i++) {
-        objKhoangGia["id"] = i,
-            objKhoangGia['thongTin'] = KhoangGia
-    }
-    for (let i = 1; i <= Huong.length; i++) {
-        objHuong["id"] = i,
-            objHuong['thongTin'] = Huong
-    }
-    for (let i = 1; i <= TongDienTich.length; i++) {
-        objTongDienTich["id"] = i,
-            objTongDienTich['thongTin'] = TongDienTich
-    }*/}
-
-
-
     return (
         <View>
             <Modal

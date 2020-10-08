@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome5"
 import OptionSetComponent from '../../../../common/HoatDong/OptionSetComponent'
 import TextInputComponent from '../../../../common/HoatDong/TextInputComponent'
+import BoolenComponent from '../../../../common/HoatDong/BoolenComponent'
 import MultiInputCuocGoiComponent from '../../../../common/HoatDong/MultiInputCuocGoiComponent'
 import DateComponemt from '../../../../common/HoatDong/DateComponemt'
+import StyleCommon from '../../../../theme/StyleCommon'
 import {
     View,
     Text,
@@ -16,7 +18,7 @@ const SuaKhachHangTiemNang = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [loaiKhachHang, setLoaiKhachHang] = useState("");
     const [phanLoaiKhachHang, setPhanLoaiKhachHang] = useState("");
-    const [khachHangNuocNgoai, setKhachHangNuocNgoai] = useState("");
+    const [khachHangNuocNgoai, setKhachHangNuocNgoai] = useState(false);
     const [hoVaTen, setHoVaTen] = useState("");
     const [ten, setTen] = useState("");
     const [gioiTinh, setGioiTinh] = useState("");
@@ -53,6 +55,10 @@ const SuaKhachHangTiemNang = ({ navigation }) => {
     var MucThuNhap =
         [
             "< 5 triệu", "Từ 5 triệu < 10 triệu", "Từ 10 triệu < 20 triệu", "Từ 20 triệu < 30 triệu", "Từ 30 triệu < 50 triệu", ">50 triệu"
+        ]
+    var GioiTinh =
+        [
+            "Nam", "Nữ", "Khác"
         ]
     navigation.setOptions({
         headerRight: () => (
@@ -130,29 +136,29 @@ const SuaKhachHangTiemNang = ({ navigation }) => {
                     visible={true}
                     required={true}
                     setValue={setLoaiKhachHang}
-                    value={khachHang}
+                    value={loaiKhachHang}
                     caret={true}
                 />
                 <OptionSetComponent textName="Phân loại khách hàng"
                     disable={true}
                     visible={true}
-                    required={true}
+                    required={false}
                     setValue={setPhanLoaiKhachHang}
                     value={phanLoaiKhachHang}
                     caret={true}
                 />
-                <OptionSetComponent textName="Khách hàng nước ngoài"
+                <BoolenComponent textName="Khách hàng nước ngoài"
                     disable={true}
                     visible={true}
-                    required={true}
+                    required={false}
                     setValue={setKhachHangNuocNgoai}
                     value={khachHangNuocNgoai}
-                    caret={false}
+                    check={khachHangNuocNgoai ? ("Có") : ("Không")}
                 />
                 <TextInputComponent textName="Họ và tên đệm (VD:Nguyễn Văn)"
                     disable={true}
                     visible={true}
-                    required={true}
+                    required={false}
                     setValue={setHoVaTen}
                     value={hoVaTen}
                     caret={false}
@@ -172,8 +178,9 @@ const SuaKhachHangTiemNang = ({ navigation }) => {
                     setValue={setGioiTinh}
                     value={gioiTinh}
                     caret={true}
+                    dataOption={GioiTinh}
                 />
-                <TextInputComponent textName="Số điện thoại"
+                <TextInputComponent textName="Số điện thoại (chính)"
                     disable={true}
                     visible={true}
                     required={true}
@@ -183,7 +190,7 @@ const SuaKhachHangTiemNang = ({ navigation }) => {
                 <TextInputComponent textName="Biệt danh"
                     disable={true}
                     visible={true}
-                    required={true}
+                    required={false}
                     setValue={setBietDanh}
                     value={bietDanh}
                 />
@@ -452,14 +459,8 @@ const SuaKhachHangTiemNang = ({ navigation }) => {
                 onRequestClose={() => {
                     Alert.alert("Modal has been closed.");
                 }}
-
             >
-                <View style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor: 'rgba(0,0,0,0.5)'
-                }}>
+                <View style={StyleCommon.backgoundModal}>
                     <View style=
                         {{
                             margin: 20,

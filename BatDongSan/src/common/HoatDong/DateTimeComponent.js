@@ -35,7 +35,24 @@ function DateTimeComponemt({ textName, visible, disable, required, value, setVal
         hideDatePicker();
         setValue(formatDate(date))
     };
+    const cleanValue = () => {
+        return (
+            <TouchableOpacity
+                style=
+                {{
+                    position: 'absolute',
+                    right: 10,
+                    bottom: 10
+                }}
+                onPress={() => {
+                    setValue("")
+                }}
+            >
+                <FontAwesome name="times" size={20} color="#4A4D53" />
+            </TouchableOpacity>
 
+        )
+    }
     return (
         <View>
             {
@@ -63,6 +80,7 @@ function DateTimeComponemt({ textName, visible, disable, required, value, setVal
                                 <Text>
                                     {value}
                                 </Text>
+                                {value != null && value != "" ? (cleanValue()) : null}
                             </TouchableOpacity>
                             { <DateTimePickerModal
                                 isVisible={isDatePickerVisible}

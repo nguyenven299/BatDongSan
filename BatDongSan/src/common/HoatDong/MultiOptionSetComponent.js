@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useReducer } from 'react'
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import StyleCommon from '../../theme/StyleCommon'
+import ModalCuocGoiComponent from './ModalCuocGoiComponent'
 import {
     View,
-    Modal,
-    ScrollView,
     Text,
+    Modal,
     TouchableOpacity,
+    ScrollView
 } from 'react-native';
-import { color } from 'react-native-reanimated';
-function OptionSetComponent({ textName, visible, disable, required, value, setValue, dataOption, caret }) {
+function MultiOptionSetComponent({ textName, visible, disable, required, value, setValue, dataOption, caret }) {
     const [modalVisible, setModalVisible] = useState(false)
+    const [initArray, setInitArray] = useState([])
+    const [, forceUpdate] = useReducer(x => x + 1, 0); //re render
+    var arr = []
     const IconCaretDown = () => {
         return (
             <FontAwesome name="caret-down" size={20} color="#4A4D53"
@@ -23,24 +26,20 @@ function OptionSetComponent({ textName, visible, disable, required, value, setVa
             />
         )
     }
-    const cleanValue = () => {
-        return (
-            <TouchableOpacity
-                style=
-                {{
-                    position: 'absolute',
-                    right: 30,
-                    bottom: 10
-                }}
-                onPress={() => {
-                    setValue("")
-                }}
-            >
-                <FontAwesome name="times" size={20} color="#4A4D53" />
-            </TouchableOpacity>
 
-        )
+
+    if (value != "" && value != null) {
+        value.map((item, index) => {
+            if (index != value.length - 1) {
+                arr.push(item + "; ")
+            }
+            else {
+                arr.push(item)
+            }
+        })
     }
+    else { null }
+
     return (
         <View>
             {
@@ -55,21 +54,24 @@ function OptionSetComponent({ textName, visible, disable, required, value, setVa
                             </View>
                             <TouchableOpacity
                                 style=
+
                                 {disable ? (
                                     required ? (
-                                        value == null || value == "" ? StyleCommon.buttonRequiredStyle : StyleCommon.buttonStyle
+                                        value == null || value == [] ? StyleCommon.buttonRequiredStyle : StyleCommon.buttonStyle
                                     ) : (StyleCommon.buttonStyle)
                                 ) : (StyleCommon.buttonDisableStyle)}
                                 onPress={() => {
                                     setModalVisible(!modalVisible)
+
                                 }}
                             >
-                                <Text
-                                >{value}</Text>
+                                <Text>
+                                    {arr}
+                                </Text>
+
                                 {caret ?
                                     <IconCaretDown /> : null
                                 }
-                                {value != null && value != "" ? (cleanValue()) : null}
                             </TouchableOpacity>
                             {
                                 dataOption != null ? (<View>
@@ -78,15 +80,16 @@ function OptionSetComponent({ textName, visible, disable, required, value, setVa
                                         transparent={true}
                                         visible={modalVisible}
                                         onRequestClose={() => {
-                                            Alert.alert("Modal has been closed.");
+
                                         }}
                                     >
                                         <View style={StyleCommon.backgoundModal}>
                                             <View style=
                                                 {{
+                                                    margin: 20,
                                                     backgroundColor: "white",
-                                                    width: "70%",
-                                                    height: "50%",
+                                                    width: 300,
+                                                    height: 350,
                                                     alignItems: "center",
                                                     shadowColor: "#000",
                                                     shadowOffset:
@@ -100,23 +103,31 @@ function OptionSetComponent({ textName, visible, disable, required, value, setVa
                                                 }}
                                             >
                                                 <View
-                                                    style={{ height: "85%", width: "100%" }}
+                                                    style={{ height: 300, width: 300 }}
                                                 >
                                                     <ScrollView>
                                                         {
-
                                                             dataOption.map((item, index) => (
 
                                                                 <TouchableOpacity
                                                                     style={StyleCommon.buttonModalStyle}
                                                                     onPress={() => {
-                                                                        setValue(item)
-                                                                        setModalVisible(!modalVisible)
+                                                                        // setValue(item)
+                                                                        forceUpdate()
+                                                                        if (initArray.indexOf(item) == -1) { //indexOf lấy phần tử trong mảng ở vị trí, nếu ko có thì -1
+                                                                            initArray.push(item)
+                                                                        }
+                                                                        else {
+                                                                            initArray.splice(initArray.indexOf(item), 1) // spice xóa phần tử ở vị trí( phần tử, vị trí)
+                                                                        }
+                                                                        setInitArray(initArray)
+                                                                        setValue(initArray)
 
                                                                     }}
+
                                                                 >
                                                                     <FontAwesome
-                                                                        name='check' color={item == value ? 'orange' : "#C5C3C5"} size={20} />
+                                                                        name='check' color={initArray.indexOf(item) != -1 ? 'orange' : "#C5C3C5"} size={20} />
                                                                     <Text
                                                                         style=
                                                                         {{
@@ -126,9 +137,7 @@ function OptionSetComponent({ textName, visible, disable, required, value, setVa
                                                                         }}
                                                                     >
                                                                         {item}
-
                                                                     </Text>
-
                                                                 </TouchableOpacity>
                                                             ))
                                                         }
@@ -138,6 +147,7 @@ function OptionSetComponent({ textName, visible, disable, required, value, setVa
                                                     style={StyleCommon.buttonClose}
                                                     onPress={() => {
                                                         setModalVisible(!modalVisible);
+
                                                     }}
                                                 >
                                                     <Text style={StyleCommon.textStyleClose}>Đóng</Text>
@@ -148,7 +158,7 @@ function OptionSetComponent({ textName, visible, disable, required, value, setVa
                                 </View>) : null
                             }
                             {
-                                required && value == "" ? (
+                                required && value == [] ? (
                                     <Text style={StyleCommon.textRequird}>Trường này không được để trống</Text>
                                 ) : null
                             }
@@ -158,4 +168,4 @@ function OptionSetComponent({ textName, visible, disable, required, value, setVa
         </View>
     )
 }
-export default OptionSetComponent
+export default MultiOptionSetComponent
