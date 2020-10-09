@@ -76,8 +76,7 @@ const DeXuatDoiTTKH = ({ navigation }) => {
                     {{
                         backgroundColor: '#FFA605',
                         height: 50,
-                        marginHorizontal: 20,
-                        marginVertical: 20,
+                        alignContent: 'center',
                         padding: 20,
                         justifyContent: 'center'
                     }}

@@ -61,7 +61,8 @@ const TaoPhieuBanHang = ({ navigation }) => {
                     visible={true}
                     required={false}
                     setValue={setTieuDe}
-                    value={tieuDe} />
+                    value={tieuDe}
+                />
                 <OptionSetComponent
                     textName="Dự án"
                     disable={false}
@@ -98,14 +99,29 @@ const TaoPhieuBanHang = ({ navigation }) => {
                     value={duAn}
                     caret={true}
                 />
-                <OptionSetComponent textName="Tài khoản ngân hàng" />
+                {/* <OptionSetComponent textName="Tài khoản ngân hàng" />
                 <TextInputComponent textName="Chủ tài khoản" />
                 <OptionSetComponent textName="Ngân hàng" />
-                <OptionSetComponent textName="Chi nhánh ngân hàng" />
-                <MultiInputCuocGoiComponent textName="Diễn giải" />
-                <OptionSetComponent textName="Trạng thái" />
-                <ButtonRefesh textName="Khách hàng đồng sở hữu" />
-                <ButtonRefesh textName="Sản phẩm bán sỉ" />
+                <OptionSetComponent textName="Chi nhánh ngân hàng" /> */}
+                <MultiInputCuocGoiComponent
+                    textName="Diễn giải"
+                    disable={true}
+                    visible={true}
+                    required={false}
+                    setValue={setDienGiai}
+                    value={dienGiai}
+                />
+                <OptionSetComponent
+                    textName="Trạng thái"
+                    disable={false}
+                    visible={true}
+                    required={true}
+                    setValue={setTrangThai}
+                    value={trangThai}
+                    caret={true}
+                />
+                {/* <ButtonRefesh textName="Khách hàng đồng sở hữu" />
+                <ButtonRefesh textName="Sản phẩm bán sỉ" /> */}
 
             </ScrollView>
         </View>
