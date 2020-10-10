@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
-import ButtonAccountComponent from '../../../../common/ButtonAccountComponent'
+import auth from '@react-native-firebase/auth';
+
 import {
     View,
     Text,
     TouchableOpacity,
     StyleSheet,
     TextInput,
-    ScrollView, Image, ImageBackground
+    ScrollView, Image, ImageBackground,
+    ToastAndroid
 } from 'react-native';
 
 const TaiKhoan = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [Model, setModel] = useState("Khởi tạo")
+
     navigation.setOptions({
         headerRight: () => (
 
@@ -164,9 +167,41 @@ const TaiKhoan = ({ navigation }) => {
                     </Text>
                     <Text style={style.textStyle1}>2.0.0</Text>
                 </View>
-                <ButtonAccountComponent textName="Đổi mật khẩu" navigation={navigation} />
-                <ButtonAccountComponent textName="Chỉnh sửa thông tin" navigation={navigation} />
-                <ButtonAccountComponent textName="Đăng xuất" />
+                <View
+                    style=
+                    {{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginVertical: 10
+                    }}
+                >
+                    <TouchableOpacity
+                        style={style.buttonStyle}
+
+                    >
+                        <Text
+                            style={style.textStyle2}
+                        >Đổi mật khẩu</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={style.buttonStyle}>
+                        <Text
+                            style={style.textStyle2}
+                        >Chỉnh sửa thông tin</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={style.buttonStyle}
+                        onPress={() => {
+                            auth().signOut().then(() =>
+                                navigation.navigate("DangNhap")
+                            )
+                        }}
+                    >
+                        <Text
+                            style={style.textStyle2}
+                        >Đăng Xuất</Text>
+                    </TouchableOpacity>
+                </View>
 
             </ScrollView>
 
@@ -191,6 +226,23 @@ const style = StyleSheet.create({
         margin: 5,
 
         fontWeight: 'bold'
+    },
+    buttonStyle:
+    {
+        backgroundColor: 'white',
+        borderColor: '#FFA605',
+        borderWidth: 1,
+        borderRadius: 5,
+        width: "80%",
+        padding: 10,
+        marginTop: 10
+    },
+    textStyle2:
+    {
+        textAlign: 'center',
+        fontSize: 20,
+        color: '#FFA605',
+
     }
 })
 export default TaiKhoan;

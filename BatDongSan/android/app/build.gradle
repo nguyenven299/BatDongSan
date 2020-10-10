@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 import com.android.build.OutputFile
+apply plugin: 'com.google.gms.google-services' // <- Add this line
 
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
@@ -134,6 +135,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+                multiDexEnabled true
+
     }
     splits {
         abi {
@@ -186,7 +189,6 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-
     implementation 'com.google.firebase:firebase-firestore:21.6.0'
     implementation 'com.google.firebase:firebase-auth:19.4.0'
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
@@ -210,7 +212,13 @@ dependencies {
         implementation jscFlavor
     }
 }
-
+dependencies {
+    def multidex_version = "2.0.1"
+    implementation 'androidx.multidex:multidex:$multidex_version'
+}
+dependencies {
+  implementation 'com.android.support:multidex:1.0.3'
+}
 // Run this once to be able to run the application with BUCK
 // puts all compile dependencies into folder libs for BUCK to use
 task copyDownloadableDepsToLibs(type: Copy) {

@@ -43,6 +43,7 @@ import DeXuatChuyenTen1 from "../QuanLy/MoRong/TienIch/MoRongVanBanDacBiet/MoRon
 import DeXuatDoiTTKH from "../QuanLy/MoRong/TienIch/MoRongVanBanDacBiet/DeXuatDoiThongTinKhachHang"
 import DeXuatDoiTTKH1 from '../QuanLy/MoRong/TienIch/MoRongVanBanDacBiet/MoRongDeXuatDoiThongTinKhachHang/DeXuatDoiTTKH'
 
+import DangNhap from '../TrangChinh/DangNhap'
 import { ImageBackground, Image } from 'react-native';
 
 const Stack = createStackNavigator();
@@ -323,6 +324,15 @@ const QuanLyNavigation = () => {
             />
             <Stack.Screen
                 name="DeXuatDoiTTKH1" component={DeXuatDoiTTKH1}
+                options=
+                {{
+                    // title: 'Quản lý',
+                    headerTintColor: '#fff',
+                    headerBackground: props => <LogoTitle {...props} />,
+                }}
+            />
+            <Stack.Screen
+                name="DangNhap" component={DangNhap}
                 options=
                 {{
                     // title: 'Quản lý',

@@ -4,7 +4,7 @@ import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 import DangNhap from '../TrangChinh/DangNhap.js'
 import DangKy from '../TrangChinh/DangKy'
-
+import LayLaiMatKhau from '../TrangChinh/LayLaiMatKhau'
 const DangNhapNavigation = () => {
     return (
         <NavigationContainer>
@@ -17,6 +17,15 @@ const DangNhapNavigation = () => {
                 <Stack.Screen
                     name="DangKy"
                     component={DangKy}
+                    options=
+                    {{
+                        headerStyle: { backgroundColor: '#FFA400' },
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="LayLaiMatKhau"
+                    component={LayLaiMatKhau}
                     options=
                     {{
                         headerStyle: { backgroundColor: '#FFA400' },

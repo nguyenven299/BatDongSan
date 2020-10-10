@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
+import auth from '@react-native-firebase/auth'
 import {
     View,
     Text,
@@ -7,20 +8,26 @@ import {
     Image,
     TextInput,
     TouchableOpacity,
-    KeyboardAvoidingView, Alert
-
+    KeyboardAvoidingView,
+    Alert, ToastAndroid,
+    StyleSheet
 } from 'react-native';
 import { UserContext } from '../../../App';
-
 const DangNhap = ({ navigation }) => {
     const [Icons, setIcon] = useState("eye")
     const [Account, setAccount] = useState()
     const [Password, setPassword] = useState()
     const [hidePassword, setHidePassword] = useState(true)
     const userContext = useContext(UserContext)
+    var user = auth().currentUser
+    if (user) {
+        userContext.setUser(user)
+    }
+    else {
+        userContext.setUser(null)
+    }
 
     return (
-
         <KeyboardAvoidingView
             behavior={"height"}
         >
@@ -52,30 +59,39 @@ const DangNhap = ({ navigation }) => {
                     >
                         Đăng Nhập
                     </Text>
+
                     <View
-                        style=
-                        {{
-                            marginVertical: 20
+                        style={{
+                            width: "80%",
+                            height: "60%"
                         }}
                     >
-                        <View>
-                            <ImageBackground
-                                source={require('../../assest/bg-02.png')}
+                        <ImageBackground
+                            source={require('../../assest/bg-02.png')}
+                            style=
+                            {{
+                                width: "100%",
+                                height: "100%",
+                                alignItems: 'center'
+                            }}
+                            imageStyle=
+                            {{
+                                borderRadius: 20
+                            }}
+                        >
+
+                            <View
                                 style=
                                 {{
-                                    width: 350,
-                                    height: 470,
-                                    alignItems: 'center'
-                                }}
-                                imageStyle=
-                                {{
-                                    borderRadius: 20
+                                    alignItems: 'center',
+                                    height: 40,
+                                    width: "90%",
                                 }}
                             >
                                 <Text
                                     style=
                                     {{
-                                        marginTop: "40%",
+                                        marginTop: "35%",
                                         fontSize: 17,
                                         color: '#DF5305'
                                     }}
@@ -83,44 +99,45 @@ const DangNhap = ({ navigation }) => {
                                     Tên đăng nhập
                             </Text>
                                 <View
-                                    style=
-                                    {{
-                                        flexDirection: 'row',
-                                        alignItems: 'center',
-                                    }}
+                                    style={style.viewStyle}
                                 >
                                     <TextInput
                                         style=
                                         {{
-                                            width: "80%",
+                                            width: "90%",
                                             height: 40,
-                                            backgroundColor: 'white',
-                                            borderRadius: 20,
-                                            marginTop: 10,
-                                            paddingLeft: 20,
-                                            paddingRight: 30,
+                                            fontSize: 17,
+                                            marginLeft: "5%"
                                         }}
-
+                                        keyboardType="email-address"
                                         onChangeText={text => setAccount(text)}
                                         value={Account}
-
                                     >
                                     </TextInput>
 
                                     <FontAwesome name="user" color={"#D88B00"} size={20}
-                                        style=
-                                        {{
-
-                                            position: 'absolute',
-                                            right: 10,
-                                            bottom: 10
+                                        style={{
+                                            width: "10%",
+                                            marginRight: 10,
                                         }}
                                     />
                                 </View>
+
+                            </View>
+
+                            <View
+                                style=
+                                {{
+                                    alignItems: 'center',
+                                    height: 40,
+                                    width: "90%",
+                                    marginTop: '15%'
+                                }}
+                            >
                                 <Text
                                     style=
                                     {{
-                                        marginTop: "5%",
+                                        marginTop: "35%",
                                         fontSize: 17,
                                         color: '#DF5305'
                                     }}
@@ -128,36 +145,23 @@ const DangNhap = ({ navigation }) => {
                                     Mật khẩu
                             </Text>
                                 <View
-                                    style=
-                                    {{
-                                        flexDirection: 'row',
-                                        alignItems: 'center',
-                                    }}
+                                    style={style.viewStyle}
                                 >
                                     <TextInput
                                         style=
                                         {{
-                                            width: "80%",
+                                            width: "77%",
                                             height: 40,
-                                            backgroundColor: 'white',
-                                            borderRadius: 20,
-                                            marginTop: 10,
-                                            paddingLeft: 20,
-                                            paddingRight: 30,
-
+                                            fontSize: 17,
+                                            marginLeft: "5%"
                                         }}
                                         secureTextEntry={hidePassword}
-                                        onChangeText={(text) => setPassword({ text })}
+                                        onChangeText={text => setPassword(text)}
                                     >
-
                                     </TextInput>
                                     <TouchableOpacity
-                                        style=
-                                        {{
-
-                                            position: 'absolute',
-                                            right: 30,
-                                            bottom: 10
+                                        style={{
+                                            width: "10%",
                                         }}
                                         onPress={() =>
                                             Icons !== "eye-slash"
@@ -166,42 +170,42 @@ const DangNhap = ({ navigation }) => {
                                         }
                                     >
                                         <FontAwesome name={Icons} color="#D88B00" size={20}
-
                                         />
                                     </TouchableOpacity>
                                     <FontAwesome name="lock" color="#D88B00" size={20}
                                         style=
                                         {{
-                                            position: 'absolute',
-                                            right: 10,
-                                            bottom: 10
+                                            width: "10%",
+                                            marginRight: 5,
                                         }}
                                     />
                                 </View>
-                                <TouchableOpacity
+
+
+
+                            </View>
+                            <TouchableOpacity
+                                style=
+                                {{
+                                    marginTop: "50%"
+                                }}
+                                onPress={() => {
+                                    navigation.navigate("LayLaiMatKhau")
+                                }}
+                            >
+                                <Text
                                     style=
                                     {{
-                                        marginTop: "5%"
-                                    }}
-                                    onPress={() => {
-                                        console.log(Account)
-                                        console.log(numberFormat(Account))
+                                        marginTop: "1%",
+                                        fontSize: 17,
+                                        color: '#DF5305',
+                                        textDecorationLine: 'underline'
                                     }}
                                 >
-                                    <Text
-                                        style=
-                                        {{
-                                            marginTop: "1%",
-                                            fontSize: 17,
-                                            color: '#DF5305',
-                                            textDecorationLine: 'underline'
-                                        }}
-                                    >
-                                        Cấp lại mật khẩu
+                                    Cấp lại mật khẩu
                                 </Text>
-                                </TouchableOpacity>
-                            </ImageBackground>
-                        </View>
+                            </TouchableOpacity>
+                        </ImageBackground>
                         <View
                             style=
                             {{
@@ -251,11 +255,35 @@ const DangNhap = ({ navigation }) => {
                                 }}
                                 onPress={
                                     () => {
-                                        if (Account != "undefined" && Account != null && Password != "undefined" && Password != null) {
-                                            userContext.setUser("LogIn")
+
+                                        if (Account == null || Account == 'undefined' || Password == null || Password == "undefined") {
+
+                                            Alert.alert(
+                                                "Dữ liệu trống",
+                                                "Vui lòng nhập đầy đủ thông tin"
+                                            )
                                         }
                                         else {
-                                            Alert.alert("Vui lòng nhập đầy đủ dữ liệu")
+                                            auth().signInWithEmailAndPassword(Account, Password)
+                                                .then(() => {
+                                                    ToastAndroid.showWithGravityAndOffset(
+                                                        "Đăng nhập thành công!",
+                                                        ToastAndroid.LONG,
+                                                        ToastAndroid.BOTTOM,
+                                                        25,
+                                                        50
+                                                    )
+                                                    userContext.setUser("LogIn")
+                                                })
+                                                .catch(function (error) {
+                                                    ToastAndroid.showWithGravityAndOffset(
+                                                        "Đăng nhập thất bại!",
+                                                        ToastAndroid.LONG,
+                                                        ToastAndroid.BOTTOM,
+                                                        25,
+                                                        50
+                                                    )
+                                                })
                                         }
                                     }
                                 }
@@ -273,9 +301,25 @@ const DangNhap = ({ navigation }) => {
                             </TouchableOpacity>
                         </View>
                     </View>
+
+
                 </ImageBackground>
             </View>
-        </KeyboardAvoidingView>
+        </KeyboardAvoidingView >
     )
 }
+const style = StyleSheet.create({
+    viewStyle:
+    {
+        width: '90%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        height: 40,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        alignContent: 'center',
+        alignItems: 'center',
+        marginTop: "5%"
+    }
+})
 export default DangNhap;

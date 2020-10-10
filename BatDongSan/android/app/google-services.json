@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "605156730086",
+    "firebase_url": "https://batdongsan-be2f5.firebaseio.com",
+    "project_id": "batdongsan-be2f5",
+    "storage_bucket": "batdongsan-be2f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605156730086:android:20ca69da9bfe23cfb78727",
+        "android_client_info": {
+          "package_name": "com.batdongsan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605156730086-0b1oplhdemvchcc7pfgfcrc22cqu93a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa7khBmTQ7NN2R2nVslm066SeTACMi3Eg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605156730086-0b1oplhdemvchcc7pfgfcrc22cqu93a0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
