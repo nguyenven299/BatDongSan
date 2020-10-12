@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import auth from '@react-native-firebase/auth';
 import { UserContext } from '../../../App';
-
+import Api from './../../Api'
 import {
     View,
     Text,
@@ -25,7 +25,7 @@ DangKy = ({ navigation }) => {
     const [password, setPassword] = useState()
     const [rePassword, setRepassword] = useState()
     const userContext = useContext(UserContext)
-
+    var uid
     console.log(name + ":" + account + ":" + password + ":" + rePassword)
     return (
 
@@ -243,14 +243,27 @@ DangKy = ({ navigation }) => {
                                             ) : (
                                                 auth().createUserWithEmailAndPassword(account, rePassword)
                                                     .then(() => {
-                                                        ToastAndroid.showWithGravityAndOffset(
-                                                            "Đăng ký thành công!",
-                                                            ToastAndroid.LONG,
-                                                            ToastAndroid.BOTTOM,
-                                                            25,
-                                                            50
-                                                        ),
-                                                            userContext.setUser("LogIn")
+
+                                                        uid = auth().currentUser.uid
+                                                        Api.themDuLieuSauDangKy(uid, name, account, rePassword).then((rs) => {
+                                                            ToastAndroid.showWithGravityAndOffset(
+                                                                rs,
+                                                                ToastAndroid.LONG,
+                                                                ToastAndroid.BOTTOM,
+                                                                25,
+                                                                50
+                                                            ),
+                                                                userContext.setUser("LogIn")
+
+                                                        }).catch((rj) => {
+                                                            ToastAndroid.showWithGravityAndOffset(
+                                                                rj,
+                                                                ToastAndroid.LONG,
+                                                                ToastAndroid.BOTTOM,
+                                                                25,
+                                                                50
+                                                            )
+                                                        })
                                                     }).catch(error => {
                                                         if (error.code == 'auth/email-already-in-use') {
                                                             ToastAndroid.showWithGravity(
